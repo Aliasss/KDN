@@ -1,6 +1,8 @@
-// Google Sheets JSON URL (배포 후 여기에 URL 입력)
-// SETUP_GUIDE.md를 참고하여 Google Sheets를 JSON으로 퍼블리시하고 아래 URL을 업데이트하세요
-const SHEETS_JSON_URL = 'YOUR_GOOGLE_SHEETS_JSON_URL_HERE';
+// Google Sheets API v4 URL
+const SPREADSHEET_ID = '1rxa-OcHMLkQVtp8zNJxyR4J0sZ93heeykbJqSFZRHkU';
+const API_KEY = 'AIzaSyDzE9bR9EZUWT-GkB2vP96rMLf3P9zpa9A';
+const SHEET_NAME = '커뮤니티인사이트';
+const SHEETS_JSON_URL = `https://sheets.googleapis.com/v4/spreadsheets/${SPREADSHEET_ID}/values/${SHEET_NAME}?key=${API_KEY}`;
 
 // 페이지 로드 시 인사이트 불러오기
 document.addEventListener('DOMContentLoaded', () => {
@@ -18,14 +20,7 @@ async function fetchInsights() {
   if (!insightsList) return;
   
   try {
-    // SHEETS_JSON_URL이 설정되지 않은 경우 예시 데이터 사용
-    if (SHEETS_JSON_URL === 'YOUR_GOOGLE_SHEETS_JSON_URL_HERE') {
-      console.warn('Google Sheets JSON URL이 설정되지 않았습니다. 예시 데이터를 표시합니다.');
-      renderExampleInsights();
-      return;
-    }
-    
-    // Google Sheets JSON 데이터 가져오기
+    // Google Sheets API에서 데이터 가져오기
     const response = await fetch(SHEETS_JSON_URL);
     
     if (!response.ok) {
@@ -50,29 +45,24 @@ async function fetchInsights() {
 }
 
 /**
- * Google Sheets JSON 데이터 파싱
- * @param {Object} data - Google Sheets JSON 데이터
+ * Google Sheets API v4 데이터 파싱
+ * @param {Object} data - Google Sheets API v4 응답 데이터
  * @returns {Array} 인사이트 배열
  */
 function parseGoogleSheetsData(data) {
-  // Google Sheets JSON 형식에 맞게 파싱
-  // 실제 구조는 Sheets 설정에 따라 다를 수 있음
-  
-  if (data.feed && data.feed.entry) {
-    // Atom feed 형식
-    return data.feed.entry.map(entry => ({
-      nickname: entry.gsx$nickname?.$t || '익명',
-      insight: entry.gsx$insight?.$t || '',
-      timestamp: entry.gsx$timestamp?.$t || ''
-    }));
-  } else if (data.values) {
-    // values 형식 (첫 행은 헤더)
+  // Google Sheets API v4는 values 배열 반환
+  if (data.values && data.values.length > 1) {
+    // 첫 행은 헤더 (timestamp, nickname, insight)
     const [headers, ...rows] = data.values;
-    return rows.map(row => ({
-      nickname: row[0] || '익명',
-      insight: row[1] || '',
-      timestamp: row[2] || ''
-    }));
+    
+    return rows
+      .filter(row => row.length >= 3) // 최소 3개 열 필요
+      .map(row => ({
+        timestamp: row[0] || '',
+        nickname: row[1] || '익명',
+        insight: row[2] || ''
+      }))
+      .filter(item => item.insight); // 인사이트가 있는 것만
   }
   
   return [];
