@@ -1,6 +1,4 @@
 {
-  "version": 2,
-  "public": true,
   "cleanUrls": true,
   "trailingSlash": false,
   "headers": [
@@ -24,16 +22,6 @@
           "value": "strict-origin-when-cross-origin"
         }
       ]
-    }
-  ],
-  "routes": [
-    {
-      "handle": "filesystem"
-    },
-    {
-      "src": "/(.*)",
-      "status": 404,
-      "dest": "/404.html"
     }
   ]
 }
