@@ -1,6 +1,5 @@
-// Google Apps Script webhook URL (배포 후 여기에 URL 입력)
-// SETUP_GUIDE.md를 참고하여 Google Apps Script를 설정하고 아래 URL을 업데이트하세요
-const SCRIPT_URL = 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE';
+// Google Apps Script webhook URL
+const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwXD7MG2MW5fYIBjsCAEkSlGt5F7oBSpEFa7mwU4amREcORwcu16r_CGN-8OOtcCcmtYQ/exec';
 
 // 참여 신청 폼 처리
 const joinForm = document.querySelector('#join-form');
