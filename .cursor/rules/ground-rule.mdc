@@ -1,0 +1,331 @@
+---
+alwaysApply: true
+---
+좋아 Aiden 👌
+Korea Preppers Network의 **MVP 웹사이트를 Cursor AI로 빠르게 만들기 위한 “개발 룰셋”**을 아래처럼 정리해줄게.
+이건 Cursor에게 그대로 붙여넣기 가능한 규칙 세트야 —
+즉, “어떤 철학과 방향으로 코드를 짜야 하는지”를 Cursor가 이해하게 하는 일종의 Project Instruction Document 역할을 하게 돼.
+
+⸻
+
+🧭 Korea Preppers Network — Cursor AI 개발 Rules
+
+🎯 1. 프로젝트 개요
+	•	프로젝트명: Korea Preppers Network (KPN)
+	•	목적:
+재난·위기·사회 붕괴 상황에서 생존 지식과 공동체 구축 전략을 공유하는 지성형 생존 네트워크 플랫폼
+	•	MVP 목표:
+로그인 없이 누구나 접근 가능한 지식 허브 + 참여 폼 기반 커뮤니티
+
+⸻
+
+⚙️ 2. 개발 목표
+	•	복잡한 백엔드 없이 정적 웹 기반 (HTML/CSS/JS) MVP 제작
+	•	회원 시스템 미구현 (Google OAuth 등은 추후 단계)
+	•	데이터 저장은 Google Sheets로 연결 (Google Apps Script webhook 방식)
+	•	닉네임 세션은 localStorage로 저장
+	•	디자인은 미니멀 + 딥톤 + 정보전달 중심
+	•	추후 Supabase로 자연스럽게 확장 가능하도록 구조화
+
+⸻
+
+🧩 3. 주요 페이지 구조
+
+/
+├─ index.html          # 홈
+├─ knowledge.html      # 생존 지식 아카이브
+├─ scenario.html       # 재난별 시나리오
+├─ community.html      # 익명 의견 공유/토론
+├─ join.html           # 이메일 기반 참여 신청 (Google Sheet 연동)
+└─ about.html          # 비전 및 철학 소개
+
+
+⸻
+
+🧱 4. 공통 규칙
+	•	HTML은 semantic tag 중심(<section>, <article>, <nav>, <footer>)
+	•	JS는 모듈화(script.js / form.js 등)
+	•	모든 페이지 상단에 공통 네비게이션 포함
+	•	CSS 변수로 컬러 팔레트 관리 (KPN 전용 컬러)
+
+:root {
+  --bg: #0D0D0D;
+  --text: #EAEAEA;
+  --accent: #7F5AF0;
+  --subtle: #72757E;
+}
+
+
+	•	폰트: Pretendard (Google Fonts CDN)
+	•	배경: 검정 계열, 포인트는 보라톤 (#7F5AF0)
+	•	버튼 스타일: 테두리형, hover 시 색 반전
+
+⸻
+
+📩 5. Google Sheets 연동 규칙
+	•	/join.html 폼 전송 시 Google Apps Script webhook 호출
+	•	Script URL:
+https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec
+	•	POST 방식, FormData 전송
+	•	필드 예시:
+
+<form id="join-form">
+  <input name="nickname" placeholder="닉네임" required>
+  <input name="email" placeholder="이메일" type="email" required>
+  <button type="submit">참여하기</button>
+</form>
+
+
+	•	JS 예시:
+
+const form = document.querySelector('#join-form')
+form.addEventListener('submit', async (e) => {
+  e.preventDefault()
+  await fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+  localStorage.setItem('nickname', form.nickname.value)
+  alert(`${form.nickname.value}님, 함께 준비해요.`)
+})
+
+
+
+⸻
+
+💬 6. localStorage 규칙
+	•	로그인 대체용 “닉네임 세션” 사용
+	•	최초 참여 폼 제출 시 nickname 저장
+	•	사이트 어디서든 닉네임 불러와 인사 표시
+
+const nick = localStorage.getItem('nickname')
+if (nick) {
+  document.querySelector('#welcome').textContent = `${nick}님, 다시 오셨군요.`
+}
+
+
+
+⸻
+
+🧠 7. 커뮤니티 (community.html) 구조
+	•	익명 게시형식이 아닌 간단한 의견 제출 폼 + 실시간 반영 리스트
+	•	작성 내용은 Google Sheet append 구조
+	•	표시 데이터는 주기적으로 fetch → render
+	•	JS에서 데이터 불러오기 시 fetch(SHEET_JSON_URL) 사용
+	•	UI는 “생존 인사이트 공유” 느낌으로 정돈 (카드형)
+
+⸻
+
+🎨 8. 디자인 톤 & UI 스타일
+	•	미니멀, 조용한 지성형 분위기
+	•	검정 배경 + 보라 포인트 (#7F5AF0)
+	•	둥근 모서리(border-radius: 12px)
+	•	그림자 최소화(box-shadow: none)
+	•	버튼/링크 hover 시 subtle transition
+	•	반응형 레이아웃 (모바일 고려)
+
+⸻
+
+🔮 9. 향후 확장 고려
+	•	Supabase Auth 추가 시 /api/auth 구조로 연결
+	•	게시글/댓글을 DB 기반 구조로 전환 가능
+	•	Google Sheet → Supabase Migration을 고려하여 필드 이름 명확히 관리
+
+⸻
+
+📜 10. 파일 구성 예시
+
+kpn/
+├─ index.html
+├─ knowledge.html
+├─ scenario.html
+├─ community.html
+├─ join.html
+├─ about.html
+├─ assets/
+│   ├─ style.css
+│   └─ script.js
+└─ data/
+    ├─ submit.js
+    └─ fetch_insights.js
+
+
+⸻
+
+🧰 11. 추천 기술 스택
+
+목적	선택
+Hosting Vercel
+Form Handling	Google Apps Script
+Frontend	HTML + Vanilla JS
+Storage	Google Sheets
+Font	Pretendard
+Palette	Dark minimal (보라 #7F5AF0, 흰 #EAEAEA, 회색 #72757E)
+
+
+⸻
+
+🧩 12. Cursor AI 행동 규칙 요약
+	1.	Supabase/Firebase 등 백엔드 호출 금지 (MVP 단계)
+	2.	Google Sheets API 또는 Apps Script Webhook만 사용
+	3.	모든 코드에 주석 필수 (한국어로 짧게)
+	4.	구조적이고 읽기 쉬운 폴더 관리
+	5.	미적 디테일은 “정보전달 중심”으로 단정하게
+	6.	페이지 전환 시 reload 없이 smooth scroll/transition 적용
+	7.	Console Error 없이 완전 작동 상태 유지
+
+
+⸻
+
+🎨 Korea Preppers Network – Design Rules (Minimalism Edition)
+
+🖤 1. 디자인 철학
+
+“질서 속의 긴장, 단순함 속의 지성.”
+KPN은 혼돈 속에서도 냉정한 판단과 협력을 상징한다.
+디자인은 화려하지 않고, 정보 중심적이며, 안정감을 주어야 한다.
+색, 여백, 구조만으로 위계와 감정을 표현한다.
+
+⸻
+
+🌑 2. 컬러 시스템
+
+역할	HEX	설명
+배경(Main BG)	#0D0D0D	거의 블랙에 가까운 어두움 (심리적 안정)
+본문 텍스트	#EAEAEA	약간의 회색이 섞인 부드러운 흰색
+보조 텍스트(Subtle)	#72757E	잔잔한 중간톤 회색
+포인트(Accent)	#7F5AF0	보라빛 – ‘지성, 질서, 에너지’를 상징
+경계선/라인	#1E1E1E	명확하되 존재감 낮게
+
+
+⸻
+
+🧱 3. 레이아웃
+	•	최대 폭: 960px
+	•	마진: auto
+	•	여백 단위: 1.5rem
+	•	요소 간 간격: 일정한 vertical rhythm 유지 (예: 1.5rem, 3rem)
+	•	1열 구조 기본, 필요 시 2열 그리드 (display: grid; grid-template-columns: 2fr 1fr;)
+	•	모바일 대응은 column으로 자연 전환 (flex-wrap: wrap)
+
+⸻
+
+🧭 4. 폰트 & 타이포그래피
+	•	기본 폰트: Pretendard (Google Fonts)
+
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" rel="stylesheet">
+
+
+	•	폰트 설정
+
+body {
+  font-family: 'Pretendard', sans-serif;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  line-height: 1.6;
+}
+h1, h2, h3 {
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+
+	•	폰트 크기 예시
+
+h1 { font-size: 2.4rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.4rem; }
+p  { font-size: 1rem; }
+small { font-size: 0.9rem; color: var(--subtle); }
+
+
+
+⸻
+
+🧩 5. 버튼 스타일
+	•	버튼은 테두리형, 모서리 둥글게 (border-radius: 8px)
+	•	hover 시 배경 반전 (보라 → 흰 텍스트 반전)
+	•	transition: all 0.2s ease-in-out
+
+button {
+  background: transparent;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+button:hover {
+  background: var(--accent);
+  color: var(--bg);
+}
+
+
+⸻
+
+🌫️ 6. 카드 / 컨테이너
+	•	그림자 대신 border로 구분
+	•	내부 여백(padding) 충분히 줘서 공기감 확보
+	•	예:
+
+.card {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 1.5rem;
+  background: #111;
+}
+
+
+
+⸻
+
+🧭 7. 네비게이션
+	•	상단 고정 (sticky)
+	•	배경 반투명 (rgba(13,13,13,0.8))
+	•	로고 텍스트: “KPN” (보라색), 나머지 메뉴 흰색
+	•	hover 시 보라 포인트 라인 표시
+
+<nav>
+  <div class="logo">KPN</div>
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="knowledge.html">Knowledge</a></li>
+    <li><a href="scenario.html">Scenarios</a></li>
+    <li><a href="community.html">Community</a></li>
+    <li><a href="join.html">Join</a></li>
+  </ul>
+</nav>
+
+
+⸻
+
+🌐 8. 인터랙션
+	•	애니메이션은 거의 배제
+	•	대신 hover, fade, smooth scroll만 사용
+	•	예:
+
+html {
+  scroll-behavior: smooth;
+}
+a:hover {
+  color: var(--accent);
+}
+
+
+
+⸻
+
+🧘 9. 이미지 / 일러스트 사용 원칙
+	•	불필요한 장식 이미지 금지
+	•	실제 재난 대비/지도/지식 다이어그램 외에는 사용하지 않음
+	•	영감을 주는 이미지 사용 시: NASA, 자연, 구조적 풍경 등 **“질서 속의 혼돈”**을 표현할 것
+	•	모두 desaturated tone (채도 낮게) 처리
+
+⸻
+
+🪶 10. 전체 분위기
+	•	키워드: 질서 / 명료함 / 냉정함 / 협력 / 통찰
+	•	밝지 않지만 희망이 완전히 꺼지지 않은 색감
+	•	사용자가 “두려움이 아닌 대비의 감정”을 느끼게 해야 함
+	•	UI를 통해 **“나는 준비되어 있다”**는 안정감을 전달
+
+⸻

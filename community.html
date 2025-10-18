@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>커뮤니티 - KPN</title>
+  <meta name="description" content="생존 인사이트를 공유하고 다른 준비자들과 소통하세요.">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <!-- 네비게이션 -->
+  <nav>
+    <div class="container">
+      <div class="logo">KPN</div>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="knowledge.html">Knowledge</a></li>
+        <li><a href="scenario.html">Scenarios</a></li>
+        <li><a href="community.html">Community</a></li>
+        <li><a href="join.html">Join</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- 환영 메시지 -->
+  <div id="welcome" class="container welcome" style="display: none;"></div>
+
+  <!-- 메인 컨텐츠 -->
+  <main>
+    <section class="hero">
+      <div class="container">
+        <h1>커뮤니티</h1>
+        <p>생존에 대한 인사이트를 공유하고, 함께 준비하는 사람들과 소통하세요.</p>
+      </div>
+    </section>
+
+    <!-- 인사이트 제출 폼 -->
+    <section>
+      <div class="container">
+        <h2>인사이트 공유하기</h2>
+        <p style="text-align: center; margin-bottom: 2rem; color: var(--subtle);">
+          재난 대비 경험, 유용한 팁, 또는 생존 관련 생각을 공유해주세요.
+        </p>
+        
+        <form id="insight-form">
+          <label for="nickname">닉네임</label>
+          <input type="text" id="nickname" name="nickname" placeholder="익명 또는 닉네임" required>
+
+          <label for="insight">인사이트</label>
+          <textarea id="insight" name="insight" placeholder="당신의 생존 인사이트를 공유해주세요..." required></textarea>
+
+          <button type="submit">공유하기</button>
+        </form>
+
+        <div id="form-message" style="text-align: center; margin-top: 1rem; color: var(--accent);"></div>
+      </div>
+    </section>
+
+    <!-- 공유된 인사이트 목록 -->
+    <section>
+      <div class="container">
+        <h2>공유된 인사이트</h2>
+        <p style="text-align: center; margin-bottom: 2rem; color: var(--subtle);">
+          커뮤니티 멤버들이 공유한 생존 지혜를 확인하세요.
+        </p>
+
+        <div id="insights-list" class="grid grid-2">
+          <!-- 예시 인사이트 (실제로는 Google Sheets에서 불러옴) -->
+          <div class="card">
+            <small style="color: var(--subtle);">준비자_001</small>
+            <p style="margin-top: 0.5rem;">비상 가방은 집에만 두지 말고 차량과 직장에도 작은 버전을 준비해두세요. 재난은 어디서든 일어날 수 있습니다.</p>
+          </div>
+
+          <div class="card">
+            <small style="color: var(--subtle);">생존주의자_K</small>
+            <p style="margin-top: 0.5rem;">지식이 가장 중요한 자산입니다. 책으로 된 생존 매뉴얼을 반드시 구비하세요. 전기가 끊기면 디지털 정보는 무용지물입니다.</p>
+          </div>
+
+          <div class="card">
+            <small style="color: var(--subtle);">프레퍼_서울</small>
+            <p style="margin-top: 0.5rem;">이웃과의 관계가 중요합니다. 재난 시 혼자서는 한계가 있어요. 평소에 커뮤니티를 만들어두세요.</p>
+          </div>
+
+          <div class="card">
+            <small style="color: var(--subtle);">대비형_인간</small>
+            <p style="margin-top: 0.5rem;">물 정수 필터는 반드시 두 개 이상 준비하세요. 하나가 고장나면 대안이 없습니다. 백업의 백업을 준비하는 것이 생존입니다.</p>
+          </div>
+        </div>
+
+        <p style="text-align: center; margin-top: 2rem; color: var(--subtle); font-size: 0.9rem;">
+          * Google Sheets 연동 후 실시간으로 업데이트됩니다.
+        </p>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section>
+      <div class="container" style="text-align: center;">
+        <h2>아직 참여하지 않으셨나요?</h2>
+        <p>Korea Preppers Network에 공식 참여하여 더 많은 정보를 받아보세요.</p>
+        <a href="join.html" class="btn">참여 신청하기</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- 푸터 -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Korea Preppers Network. 질서 속의 긴장, 단순함 속의 지성.</p>
+    </div>
+  </footer>
+
+  <script src="assets/script.js"></script>
+  <script src="data/fetch_insights.js"></script>
+</body>
+</html>
+
