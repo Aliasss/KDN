@@ -325,7 +325,101 @@ a:hover {
 🪶 10. 전체 분위기
 	•	키워드: 질서 / 명료함 / 냉정함 / 협력 / 통찰
 	•	밝지 않지만 희망이 완전히 꺼지지 않은 색감
-	•	사용자가 “두려움이 아닌 대비의 감정”을 느끼게 해야 함
-	•	UI를 통해 **“나는 준비되어 있다”**는 안정감을 전달
+	•	사용자가 "두려움이 아닌 대비의 감정"을 느끼게 해야 함
+	•	UI를 통해 **"나는 준비되어 있다"**는 안정감을 전달
+
+⸻
+
+📦 11. 완성된 프로젝트 구조 (유지 필수)
+
+**이 구조는 사용자가 별도로 요청하지 않는 한 유지해야 함**
+
+🗂️ 파일 구조
+```
+KPN/
+├── index.html          # 홈 페이지
+├── knowledge.html      # 생존 지식 아카이브
+├── scenario.html       # 재난별 시나리오
+├── community.html      # 커뮤니티 (인사이트 공유)
+├── join.html          # 참여 신청
+├── about.html         # 비전과 철학
+├── 404.html           # 404 에러 페이지
+├── assets/
+│   ├── style.css      # 공통 스타일 (KPN 디자인 시스템)
+│   └── script.js      # 공통 기능 (localStorage, 네비게이션)
+├── data/
+│   ├── submit.js      # 폼 제출 (Google Apps Script 연동)
+│   └── fetch_insights.js # 인사이트 불러오기 (Google Sheets API)
+├── favicon.svg        # 파비콘 (보라색 K)
+├── vercel.json        # Vercel 배포 설정
+├── .gitignore         # Git 무시 파일
+├── LICENSE            # MIT 라이선스
+├── README.md          # 프로젝트 문서
+├── SETUP_GUIDE.md     # Google Sheets 연동 가이드
+├── QUICKSTART.md      # 5분 빠른 시작
+└── PROJECT_SUMMARY.md # 완성 요약
+```
+
+⚙️ 핵심 기술 스택
+	•	Frontend: 순수 HTML5, CSS3, Vanilla JavaScript (프레임워크 없음)
+	•	Storage: Google Sheets + Google Apps Script
+	•	API: Google Sheets API v4
+	•	Session: localStorage (닉네임 저장)
+	•	Hosting: Vercel
+	•	Font: Pretendard (Google Fonts CDN)
+
+🎨 디자인 시스템
+	•	컬러 팔레트:
+		- 배경: #0D0D0D
+		- 텍스트: #EAEAEA
+		- 포인트: #7F5AF0 (보라)
+		- 보조: #72757E
+		- 경계선: #1E1E1E
+	•	레이아웃: max-width 960px, 중앙 정렬
+	•	폰트: Pretendard, 400/600 weight
+	•	버튼: 테두리형, hover 시 반전
+
+📊 데이터 흐름
+	1.	참여 신청 (join.html):
+		- submit.js → Google Apps Script → Google Sheets "참여신청" 시트
+		- localStorage에 닉네임 저장
+	
+	2.	커뮤니티 인사이트 (community.html):
+		- 제출: submit.js → Google Apps Script → Google Sheets "커뮤니티인사이트" 시트
+		- 표시: fetch_insights.js → Google Sheets API v4 → 실시간 렌더링
+
+🔒 보안 및 설정
+	•	Google Apps Script URL: 웹 앱으로 배포 (모든 사용자 액세스)
+	•	Google Sheets API 키: Google Sheets API만 제한
+	•	스프레드시트: 링크가 있는 모든 사용자 (뷰어)
+	•	Vercel: 보안 헤더 설정 (vercel.json)
+
+🚫 변경 금지 사항
+	1.	프레임워크 추가하지 않기 (React, Vue 등)
+	2.	빌드 과정 추가하지 않기 (Webpack, Vite 등)
+	3.	백엔드 서버 추가하지 않기 (Node.js, Python 등)
+	4.	데이터베이스 추가하지 않기 (MongoDB, PostgreSQL 등)
+	5.	컬러 시스템 변경하지 않기 (#7F5AF0 보라색 유지)
+	6.	폴더 구조 변경하지 않기 (assets/, data/ 구조 유지)
+
+✅ 허용되는 변경
+	1.	콘텐츠 추가 및 수정 (HTML 내용)
+	2.	새로운 HTML 페이지 추가 (동일한 구조로)
+	3.	CSS 스타일 세부 조정 (컬러 시스템 유지)
+	4.	JavaScript 기능 추가 (Vanilla JS만)
+	5.	문서 업데이트 (README, GUIDE 등)
+
+📌 배포 워크플로우
+	1.	로컬 수정
+	2.	git add / commit / push
+	3.	Vercel 자동 재배포 (1-2분)
+	4.	테스트 및 확인
+
+⚠️ 중요 원칙
+	•	**단순함 유지**: 복잡한 기술 추가 금지
+	•	**정적 웹사이트**: 서버 없이 작동
+	•	**Google Sheets**: 유일한 데이터 저장소
+	•	**Vercel**: 유일한 호스팅 플랫폼
+	•	**사용자 요청 없이 구조 변경 금지**
 
 ⸻
