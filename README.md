@@ -200,6 +200,19 @@ KPN은 커뮤니티가 함께 만들어가는 프로젝트입니다.
 
 ---
 
+## 📚 문서
+
+프로젝트와 관련된 모든 문서를 확인하세요:
+
+- **[QUICKSTART.md](QUICKSTART.md)** - 5분 빠른 시작 가이드
+- **[SETUP_GUIDE.md](SETUP_GUIDE.md)** - Google Sheets 연동 상세 가이드
+- **[PROJECT_SUMMARY.md](PROJECT_SUMMARY.md)** - 프로젝트 완성 요약
+- **[VERSION.md](VERSION.md)** - 현재 버전 정보 및 변경 이력
+- **[ROLLBACK_GUIDE.md](ROLLBACK_GUIDE.md)** - 버전 관리 및 롤백 가이드
+- **[README.md](README.md)** - 프로젝트 소개 (이 문서)
+
+---
+
 ## 📜 라이선스
 
 이 프로젝트는 **MIT 라이선스**를 따릅니다.
@@ -264,7 +277,10 @@ KPN은 다음 프로젝트 및 커뮤니티의 영감을 받았습니다:
 
 ---
 
-**Version**: 1.0.0  
-**Last Updated**: 2025-10-18  
+**Version**: v1.0  
+**Git Tag**: `v1.0`  
+**Last Updated**: 2025-01-XX  
 **Made with ❤️ by Korea Preppers Network**
+
+[버전 정보 상세보기](VERSION.md) | [롤백 가이드](ROLLBACK_GUIDE.md)
 
