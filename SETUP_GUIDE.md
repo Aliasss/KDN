@@ -286,14 +286,144 @@ const SHEETS_JSON_URL = 'https://sheets.googleapis.com/v4/spreadsheets/[SPREADSH
 
 ---
 
+## 5. 이메일 자동 발송 설정 (선택)
+
+참여 신청 시 자동으로 Slack 초대 이메일을 발송하려면 Google Apps Script에 이메일 발송 함수를 추가해야 합니다.
+
+### 5.1. Google Apps Script에 함수 추가
+
+1. **Apps Script 편집기 열기**
+   - Google Sheets에서 `확장 프로그램` → `Apps Script` 클릭
+
+2. **sendWelcomeEmail 함수 추가**
+   - 기존 `doPost` 함수 아래에 다음 함수 추가:
+
+```javascript
+function sendWelcomeEmail(email, nickname) {
+  const subject = 'Korea Preppers Network에 오신 것을 환영합니다';
+  
+  const body = `안녕하세요, ${nickname}님!
+
+Korea Preppers Network (KPN)에 참여해주셔서 진심으로 감사드립니다.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🎯 KPN의 주요 소통 채널은 Slack입니다
+
+저희는 아직 초창기 단계로, 함께 커뮤니티를 만들어가고 있습니다.
+생존 지식을 나누고, 실질적인 대비 전략을 함께 고민하는 공간을 
+한 걸음씩 구축해 나가고자 합니다.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📨 Slack 채널 초대장이 발송되었습니다
+
+아래 링크를 클릭하여 KPN Slack 워크스페이스에 참여하세요:
+
+👉 https://join.slack.com/t/koreapreppersnetwork/shared_invite/zt-3ggvvn07k-R_8iVfj6fDD0~1dNdj6HGQ
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+💬 Slack에서 할 수 있는 것들:
+
+• 다른 준비자들과 실시간 소통
+• 생존 지식 및 경험 공유
+• 재난 대비 질문 및 토론
+• 지역별 커뮤니티 연결
+• 최신 정보 및 업데이트 수신
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🌐 KPN 웹사이트: https://your-vercel-site.vercel.app
+📚 생존 지식: https://your-vercel-site.vercel.app/knowledge.html
+📋 시나리오: https://your-vercel-site.vercel.app/scenario.html
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+함께 준비하고, 함께 살아남읍시다.
+
+- Korea Preppers Network 팀 드림
+
+P.S. 이 이메일에 회신하시면 저희가 직접 답변드립니다.`;
+
+  try {
+    MailApp.sendEmail({
+      to: email,
+      subject: subject,
+      body: body
+    });
+    Logger.log('Welcome email sent to: ' + email);
+  } catch (error) {
+    Logger.log('Email sending failed: ' + error);
+  }
+}
+```
+
+3. **doPost 함수에 이메일 발송 코드 추가**
+   - `joinSheet.appendRow(...)` 다음 줄에 추가:
+
+```javascript
+// 이메일 발송
+sendWelcomeEmail(email, nickname);
+```
+
+### 5.2. 권한 승인
+
+1. **저장 및 실행**
+   - 저장 아이콘 클릭 (💾)
+   - `doPost` 함수 선택 후 "실행" 버튼 클릭
+
+2. **권한 검토**
+   - "권한 검토" 대화상자가 나타남
+   - 본인의 Google 계정 선택
+
+3. **고급 옵션으로 진행**
+   - "고급" 링크 클릭
+   - "[프로젝트 이름] (안전하지 않음)으로 이동" 클릭
+
+4. **권한 허용**
+   - "허용" 버튼 클릭
+   - Gmail 전송 권한 승인
+
+### 5.3. 웹 앱 재배포
+
+권한을 추가한 후에는 웹 앱을 다시 배포해야 합니다:
+
+1. 오른쪽 상단 "배포" → "배포 관리" 클릭
+2. 현재 배포 옆의 연필 아이콘(✏️) 클릭
+3. "버전" → "새 버전" 선택
+4. "배포" 버튼 클릭
+
+### 5.4. 제한사항 및 주의사항
+
+⚠️ **MailApp 제한사항**:
+- **하루 100통 제한**: 일반 Gmail 계정은 하루 100통까지만 발송 가능
+- **초기 단계에는 충분**: MVP 단계에서는 문제없음
+- **대량 발송 시**: Gmail API 또는 SendGrid 등 전문 서비스 사용 권장
+
+💡 **팁**:
+- 이메일 제목과 본문은 `sendWelcomeEmail` 함수에서 자유롭게 수정 가능
+- Vercel URL은 실제 배포된 사이트 주소로 변경하세요
+- 이메일 전송 실패 시 `Logger.log`로 오류 확인 가능 (Apps Script 편집기 → "실행 로그" 탭)
+
+### 5.5. 테스트
+
+1. 웹사이트에서 참여 신청 제출
+2. 입력한 이메일로 환영 메일 수신 확인
+3. Slack 링크 클릭하여 참여 확인
+
+---
+
 ## 📞 추가 도움
 
 - [Google Apps Script 공식 문서](https://developers.google.com/apps-script)
 - [Google Sheets API 문서](https://developers.google.com/sheets/api)
+- [MailApp 문서](https://developers.google.com/apps-script/reference/mail/mail-app)
 - KPN 커뮤니티에서 질문하기
 
 ---
 
 **작성일**: 2025-10-18  
-**버전**: 1.0
+**최종 업데이트**: 2025-01-19  
+**버전**: 1.1
 

@@ -536,6 +536,9 @@ const ko = {
     benefit4_title: '🌍 함께 만드는 안전망',
     benefit4_content: '개인의 준비를 넘어, 공동체 차원의 생존 네트워크를 구축합니다.',
     
+    benefit_slack_title: '💬 Slack 커뮤니티',
+    benefit_slack_content: '참여 신청 후 이메일로 Slack 초대장을 받게 됩니다. Slack은 KPN의 주요 소통 채널로, 실시간 토론과 정보 공유가 이루어집니다.',
+    
     form_title: '참여 신청하기',
     form_subtitle: '간단한 정보만 입력하시면 됩니다. 개인정보는 안전하게 보호됩니다.',
     

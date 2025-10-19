@@ -57,16 +57,39 @@ if (joinForm) {
         const nickname = formData.get('nickname');
         setNickname(nickname);
         
+        // 성공 메시지 업데이트 (다국어 지원)
+        const lang = localStorage.getItem('lang') || 'ko';
         formMessage.style.color = 'var(--accent)';
-        formMessage.textContent = `${nickname}님, 환영합니다! 함께 준비해요.`;
+        
+        if (lang === 'ko') {
+          formMessage.innerHTML = `
+            <strong>${nickname}님, 환영합니다!</strong><br><br>
+            📧 이메일로 <strong>Slack 초대장</strong>을 발송했습니다.<br>
+            메일함을 확인하시고 KPN Slack 커뮤니티에 참여해주세요!<br><br>
+            <small style="color: var(--subtle);">
+              * 이메일이 보이지 않는다면 스팸함을 확인해주세요.<br>
+              * Slack은 KPN의 주요 소통 채널입니다.
+            </small>
+          `;
+        } else {
+          formMessage.innerHTML = `
+            <strong>Welcome, ${nickname}!</strong><br><br>
+            📧 We've sent a <strong>Slack invitation</strong> to your email.<br>
+            Please check your inbox and join the KPN Slack community!<br><br>
+            <small style="color: var(--subtle);">
+              * If you don't see the email, please check your spam folder.<br>
+              * Slack is KPN's primary communication channel.
+            </small>
+          `;
+        }
         
         // 폼 초기화
         joinForm.reset();
         
-        // 3초 후 홈으로 이동
+        // 5초 후 홈으로 이동 (이메일 내용을 읽을 시간 제공)
         setTimeout(() => {
           window.location.href = 'index.html';
-        }, 3000);
+        }, 5000);
       } else {
         throw new Error(result.message || '전송 실패');
       }

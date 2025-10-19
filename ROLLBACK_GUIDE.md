@@ -9,6 +9,25 @@ KPN 프로젝트는 Git 태그를 사용하여 주요 버전을 관리합니다.
 
 ## 🏷️ 등록된 버전
 
+### v1.3 (2025-01-19)
+**커밋 해시**: `[생성 예정]`
+
+**주요 내용**:
+- ✅ Slack 자동 초대 이메일 발송 기능 추가
+- ✅ join.html 성공 메시지 HTML 업그레이드 (다국어 지원)
+- ✅ Slack 커뮤니티 안내 카드 추가
+- ✅ SETUP_GUIDE.md 이메일 설정 가이드 추가 (140+ 줄)
+- ✅ Google Apps Script 코드 템플릿 제공
+
+**구성**:
+- HTML: `join.html` - Slack 안내 카드 추가
+- JavaScript: `data/submit.js` - 성공 메시지 다국어 HTML 처리
+- i18n: `i18n/ko.js` (+2 keys), `i18n/en.js` (+2 keys)
+- 문서: `SETUP_GUIDE.md` 이메일 섹션 추가, `VERSION.md` 업데이트
+- 템플릿: `google-apps-script-email.js` (새 파일)
+
+---
+
 ### v1.2 (2025-01-19)
 **커밋 해시**: `58a6163`
 

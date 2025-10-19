@@ -536,6 +536,9 @@ const en = {
     benefit4_title: '🌍 Building a Safety Net Together',
     benefit4_content: 'Beyond individual preparation, we build a survival network at the community level.',
     
+    benefit_slack_title: '💬 Slack Community',
+    benefit_slack_content: 'After registration, you will receive a Slack invitation via email. Slack is KPN\'s primary communication channel for real-time discussions and information sharing.',
+    
     form_title: 'Apply to Join',
     form_subtitle: 'Simply enter basic information. Your personal information is safely protected.',
     
