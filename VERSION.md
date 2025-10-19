@@ -1,0 +1,188 @@
+# 📦 KPN 버전 정보
+
+## 현재 버전: v1.0
+
+**릴리즈 날짜**: 2025-01-XX  
+**커밋 해시**: `825f6f8`  
+**Git 태그**: `v1.0`
+
+---
+
+## v1.0 - MVP 완성판 (2025-01-XX)
+
+### ✨ 주요 기능
+
+#### 📚 Knowledge 페이지
+- 8개 생존 지식 카테고리 심층 확장
+  - 🌾 식량 확보 및 저장 (4단계 가이드)
+  - 💧 식수 확보 및 정화 (3단계 체계)
+  - ⚡ 에너지 및 난방 (3단계 전략)
+  - 🏥 의료 및 구급 (심신 통합)
+  - 📡 통신 및 정보 (2단계 비상 체계)
+  - 🔒 보안 및 방어 (개인+공동체)
+  - 🛠️ 필수 스킬 및 도구 (실용 중심)
+  - 🧠 심리적 준비 및 공동체 (리더십 포함)
+
+#### 🚨 Scenarios 페이지
+- 6개 재난별 대응 시나리오 전문화
+  - 🌍 지진 발생 시 (3단계 대응)
+  - 🦠 팬데믹 (3단계 준비)
+  - 🔌 장기 정전 (3단계 흐름)
+  - 🌊 수해 및 홍수 (3단계 대처)
+  - ❄️ 폭설 및 한파 (3단계 전략)
+  - 💸 경제 위기 및 금융 붕괴 (3단계 체계)
+- 🗺️ 전국 대피시설 지도 통합 (Looker Studio)
+
+#### 💬 Community 페이지
+- 익명 인사이트 공유 폼
+- Google Sheets API v4 실시간 연동
+- 카드형 인사이트 표시
+
+#### 🤝 Join 페이지
+- 닉네임 + 이메일 참여 신청
+- Google Apps Script Webhook 연동
+- localStorage 세션 관리
+
+#### ℹ️ About 페이지
+- KPN 비전과 철학
+- "질서 속의 긴장, 단순함 속의 지성"
+
+---
+
+### 🛠️ 기술 스택
+
+- **Frontend**: 순수 HTML5, CSS3, Vanilla JavaScript
+- **Storage**: Google Sheets + Google Apps Script
+- **API**: Google Sheets API v4
+- **Session**: localStorage
+- **Hosting**: Vercel
+- **Font**: Pretendard (Google Fonts CDN)
+- **Version Control**: Git + GitHub
+
+---
+
+### 🎨 디자인 시스템
+
+```css
+--bg: #0D0D0D        /* 배경 */
+--text: #EAEAEA      /* 텍스트 */
+--accent: #7F5AF0    /* 포인트 (보라) */
+--subtle: #72757E    /* 보조 */
+--line: #1E1E1E      /* 경계선 */
+```
+
+---
+
+### 📊 프로젝트 통계
+
+- **페이지**: 7개 (index, knowledge, scenario, community, join, about, 404)
+- **CSS 라인**: ~800줄
+- **JavaScript 파일**: 3개
+- **문서 파일**: 6개
+
+---
+
+### 🔧 설정 파일
+
+- `vercel.json` - Vercel 배포 설정
+- `.gitignore` - Git 무시 파일
+- `LICENSE` - MIT 라이선스
+- `favicon.svg` - 파비콘
+
+---
+
+### 📝 문서
+
+- `README.md` - 프로젝트 소개
+- `QUICKSTART.md` - 5분 빠른 시작
+- `SETUP_GUIDE.md` - Google Sheets 연동 가이드
+- `PROJECT_SUMMARY.md` - 완성 요약
+- `ROLLBACK_GUIDE.md` - 버전 관리 및 롤백 가이드
+- `VERSION.md` - 버전 정보 (이 파일)
+
+---
+
+### ⚙️ 환경 설정
+
+#### Google Apps Script
+- Webhook URL: 설정 완료
+- 스프레드시트 ID: `1rxa-OcHMLkQVtp8zNJxyR4J0sZ93heeykbJqSFZRHkU`
+
+#### Google Sheets API
+- API Key: 설정 완료
+- 시트명: "참여신청", "커뮤니티인사이트"
+
+#### Vercel
+- 프로젝트: KPN
+- 도메인: 자동 할당
+- 빌드: 정적 사이트 (빌드 과정 없음)
+
+---
+
+### 🚀 배포 히스토리
+
+1. **2025-01-XX** - v1.0 태그 생성 및 푸시
+2. **2025-01-XX** - Scenarios 페이지 업그레이드 (커밋: `825f6f8`)
+3. **2025-01-XX** - Knowledge 페이지 업그레이드 (커밋: `026551c`)
+4. **2025-01-XX** - 대피시설 지도 통합 (커밋: `baa5519`)
+5. **이전** - 초기 구조 및 Google Sheets 연동 완료
+
+---
+
+## 다음 버전 계획 (v1.1)
+
+### 예정된 기능
+- [ ] 추가 생존 지식 콘텐츠 (농업, 에너지 자급자족 등)
+- [ ] 시나리오별 체크리스트 PDF 다운로드
+- [ ] 커뮤니티 인사이트 필터링 및 검색 기능
+- [ ] 다크/라이트 모드 토글
+- [ ] PWA (Progressive Web App) 지원
+- [ ] 오프라인 캐싱
+
+### 고려 중인 기능
+- [ ] 사용자 프로필 시스템 (Supabase Auth)
+- [ ] 포럼 형식 토론 게시판
+- [ ] 지역별 커뮤니티 매칭
+- [ ] 생존 물품 체크리스트 관리
+- [ ] 모바일 앱 (React Native)
+
+---
+
+## 버전 관리 규칙
+
+### 버전 번호 체계 (Semantic Versioning)
+
+```
+v{MAJOR}.{MINOR}.{PATCH}
+
+예: v1.0.0, v1.1.0, v2.0.0
+```
+
+- **MAJOR**: 대규모 구조 변경, 호환성 깨짐
+- **MINOR**: 새로운 기능 추가 (하위 호환)
+- **PATCH**: 버그 수정, 작은 개선
+
+### 태그 생성 기준
+
+1. **주요 기능 완성**: 새로운 페이지나 핵심 기능 추가
+2. **콘텐츠 대규모 업데이트**: 여러 페이지의 콘텐츠 품질 향상
+3. **배포 전**: 프로덕션 배포 전 안정 버전 고정
+4. **마일스톤 달성**: 프로젝트 목표 단계 완료
+
+---
+
+## 롤백 가이드
+
+버전 되돌리기가 필요하다면 [ROLLBACK_GUIDE.md](ROLLBACK_GUIDE.md)를 참고하세요.
+
+**빠른 롤백**:
+```bash
+git reset --hard v1.0
+git push --force origin main
+```
+
+---
+
+**마지막 업데이트**: 2025-01-XX  
+**다음 업데이트 예정**: v1.1 (TBD)
+
