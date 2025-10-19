@@ -3,23 +3,31 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>비전과 철학 - KPN</title>
+  <title data-i18n="about.title">비전과 철학 - KPN</title>
   <meta name="description" content="Korea Preppers Network의 비전, 철학, 그리고 우리가 추구하는 가치에 대해 알아보세요.">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
+  <!-- 언어 전환 버튼 -->
+  <div id="lang-switcher">
+    <button id="lang-btn" aria-label="Language Switcher">
+      <span class="lang-icon">🌐</span>
+      <span class="lang-code">KO</span>
+    </button>
+  </div>
+
   <!-- 네비게이션 -->
   <nav>
     <div class="container">
-      <div class="logo">KPN</div>
+      <div class="logo" data-i18n="common.logo">KPN</div>
       <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="knowledge.html">Knowledge</a></li>
-        <li><a href="scenario.html">Scenarios</a></li>
-        <li><a href="community.html">Community</a></li>
-        <li><a href="join.html">Join</a></li>
-        <li><a href="about.html">About</a></li>
+        <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+        <li><a href="knowledge.html" data-i18n="nav.knowledge">Knowledge</a></li>
+        <li><a href="scenario.html" data-i18n="nav.scenarios">Scenarios</a></li>
+        <li><a href="community.html" data-i18n="nav.community">Community</a></li>
+        <li><a href="join.html" data-i18n="nav.join">Join</a></li>
+        <li><a href="about.html" data-i18n="nav.about">About</a></li>
       </ul>
     </div>
   </nav>
@@ -31,21 +39,21 @@
   <main>
     <section class="hero">
       <div class="container">
-        <h1>질서 속의 긴장,<br>단순함 속의 지성</h1>
-        <p>Korea Preppers Network의 비전과 철학</p>
+        <h1><span data-i18n="about.hero_title">질서 속의 긴장,</span><br><span data-i18n="about.hero_title2">단순함 속의 지성</span></h1>
+        <p data-i18n="about.hero_subtitle">Korea Preppers Network의 비전과 철학</p>
       </div>
     </section>
 
     <!-- 우리의 비전 -->
     <section>
       <div class="container">
-        <h2>우리의 비전</h2>
+        <h2 data-i18n="about.vision_title">우리의 비전</h2>
         <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 2rem;">
-          Korea Preppers Network는 재난과 위기 상황에서 생존할 수 있는 
-          <strong style="color: var(--accent);">지식 기반 공동체</strong>를 만들어갑니다. 
-          우리는 두려움이 아닌 <strong style="color: var(--accent);">냉정한 대비</strong>를 추구하며, 
-          개인의 준비를 넘어 <strong style="color: var(--accent);">협력과 상호 지원</strong>을 통해 
-          모두가 살아남을 수 있는 사회를 만들고자 합니다.
+          <span data-i18n="about.vision_content">Korea Preppers Network는 재난과 위기 상황에서 생존할 수 있는 </span>
+          <strong style="color: var(--accent);" data-i18n="about.vision_content_highlight1">지식 기반 공동체</strong><span data-i18n="about.vision_content2">를 만들어갑니다. 
+          우리는 두려움이 아닌 </span><strong style="color: var(--accent);" data-i18n="about.vision_content_highlight2">냉정한 대비</strong><span data-i18n="about.vision_content3">를 추구하며, 
+          개인의 준비를 넘어 </span><strong style="color: var(--accent);" data-i18n="about.vision_content_highlight3">협력과 상호 지원</strong><span data-i18n="about.vision_content4">을 통해 
+          모두가 살아남을 수 있는 사회를 만들고자 합니다.</span>
         </p>
       </div>
     </section>
@@ -53,52 +61,52 @@
     <!-- 핵심 철학 -->
     <section>
       <div class="container">
-        <h2>핵심 철학</h2>
+        <h2 data-i18n="about.philosophy_title">핵심 철학</h2>
         
         <div class="card" style="margin-bottom: 1.5rem;">
-          <h3>1. 지식은 가장 강력한 생존 도구다</h3>
+          <h3 data-i18n="about.philosophy1_title">1. 지식은 가장 강력한 생존 도구다</h3>
           <p>
-            어떤 재난 상황에서도 가장 중요한 것은 <strong>올바른 지식</strong>입니다. 
+            <span data-i18n="about.philosophy1_content_part1">어떤 재난 상황에서도 가장 중요한 것은 </span><strong data-i18n="about.philosophy1_content_bold">올바른 지식</strong><span data-i18n="about.philosophy1_content_part2">입니다. 
             물자는 떨어질 수 있지만, 지식은 빼앗길 수 없습니다. 
-            우리는 체계적이고 실용적인 생존 지식을 공유하고 보존합니다.
+            우리는 체계적이고 실용적인 생존 지식을 공유하고 보존합니다.</span>
           </p>
         </div>
 
         <div class="card" style="margin-bottom: 1.5rem;">
-          <h3>2. 공동체가 개인보다 강하다</h3>
+          <h3 data-i18n="about.philosophy2_title">2. 공동체가 개인보다 강하다</h3>
           <p>
-            혼자서는 한계가 있습니다. 진정한 생존은 <strong>신뢰할 수 있는 공동체</strong>에서 시작됩니다. 
+            <span data-i18n="about.philosophy2_content_part1">혼자서는 한계가 있습니다. 진정한 생존은 </span><strong data-i18n="about.philosophy2_content_bold">신뢰할 수 있는 공동체</strong><span data-i18n="about.philosophy2_content_part2">에서 시작됩니다. 
             각자의 기술과 자원을 나누고, 서로를 지원하며, 
-            함께 준비할 때 우리는 더 강해집니다.
+            함께 준비할 때 우리는 더 강해집니다.</span>
           </p>
         </div>
 
         <div class="card" style="margin-bottom: 1.5rem;">
-          <h3>3. 냉정함이 패닉을 이긴다</h3>
+          <h3 data-i18n="about.philosophy3_title">3. 냉정함이 패닉을 이긴다</h3>
           <p>
-            재난 상황에서 가장 위험한 것은 <strong>패닉</strong>입니다. 
-            우리는 감정이 아닌 <strong>논리와 계획</strong>에 기반한 준비를 추구합니다. 
+            <span data-i18n="about.philosophy3_content_part1">재난 상황에서 가장 위험한 것은 </span><strong data-i18n="about.philosophy3_content_bold1">패닉</strong><span data-i18n="about.philosophy3_content_part2">입니다. 
+            우리는 감정이 아닌 </span><strong data-i18n="about.philosophy3_content_bold2">논리와 계획</strong><span data-i18n="about.philosophy3_content_part3">에 기반한 준비를 추구합니다. 
             차분하게 대비하고, 단계적으로 행동하며, 
-            현실을 직시하되 희망을 잃지 않습니다.
+            현실을 직시하되 희망을 잃지 않습니다.</span>
           </p>
         </div>
 
         <div class="card" style="margin-bottom: 1.5rem;">
-          <h3>4. 대비는 삶의 방식이다</h3>
+          <h3 data-i18n="about.philosophy4_title">4. 대비는 삶의 방식이다</h3>
           <p>
-            생존 준비는 <strong>일회성 이벤트가 아닌 라이프스타일</strong>입니다. 
+            <span data-i18n="about.philosophy4_content_part1">생존 준비는 </span><strong data-i18n="about.philosophy4_content_bold">일회성 이벤트가 아닌 라이프스타일</strong><span data-i18n="about.philosophy4_content_part2">입니다. 
             일상에서 꾸준히 준비하고, 지식을 업데이트하며, 
-            기술을 연마할 때 진정한 대비가 완성됩니다.
+            기술을 연마할 때 진정한 대비가 완성됩니다.</span>
           </p>
         </div>
 
         <div class="card">
-          <h3>5. 현실적 낙관주의</h3>
+          <h3 data-i18n="about.philosophy5_title">5. 현실적 낙관주의</h3>
           <p>
-            우리는 <strong>최악을 대비하되 최선을 희망</strong>합니다. 
+            <span data-i18n="about.philosophy5_content_part1">우리는 </span><strong data-i18n="about.philosophy5_content_bold1">최악을 대비하되 최선을 희망</strong><span data-i18n="about.philosophy5_content_part2">합니다. 
             비관주의자도, 맹목적 낙관주의자도 아닌, 
-            <strong>현실을 직시하면서도 희망을 품는 태도</strong>를 유지합니다. 
-            준비된 사람은 두렵지 않습니다.
+            </span><strong data-i18n="about.philosophy5_content_bold2">현실을 직시하면서도 희망을 품는 태도</strong><span data-i18n="about.philosophy5_content_part3">를 유지합니다. 
+            준비된 사람은 두렵지 않습니다.</span>
           </p>
         </div>
       </div>
@@ -107,26 +115,26 @@
     <!-- 우리가 추구하지 않는 것 -->
     <section>
       <div class="container">
-        <h2>우리가 추구하지 않는 것</h2>
+        <h2 data-i18n="about.not_pursue_title">우리가 추구하지 않는 것</h2>
         
         <div style="background: var(--line); padding: 1.5rem; border-radius: 12px; margin-bottom: 1.5rem;">
-          <h3 style="color: var(--text);">❌ 공포 마케팅</h3>
-          <p>우리는 불안을 조장하지 않습니다. 대신 <strong>냉정한 정보</strong>를 제공합니다.</p>
+          <h3 style="color: var(--text);" data-i18n="about.not_pursue1_title">❌ 공포 마케팅</h3>
+          <p><span data-i18n="about.not_pursue1_content">우리는 불안을 조장하지 않습니다. 대신 </span><strong data-i18n="about.not_pursue1_content_bold">냉정한 정보</strong><span data-i18n="about.not_pursue1_content_end">를 제공합니다.</span></p>
         </div>
 
         <div style="background: var(--line); padding: 1.5rem; border-radius: 12px; margin-bottom: 1.5rem;">
-          <h3 style="color: var(--text);">❌ 극단적 고립주의</h3>
-          <p>우리는 사회와 단절하지 않습니다. <strong>협력과 공동체</strong>를 중시합니다.</p>
+          <h3 style="color: var(--text);" data-i18n="about.not_pursue2_title">❌ 극단적 고립주의</h3>
+          <p><span data-i18n="about.not_pursue2_content">우리는 사회와 단절하지 않습니다. </span><strong data-i18n="about.not_pursue2_content_bold">협력과 공동체</strong><span data-i18n="about.not_pursue2_content_end">를 중시합니다.</span></p>
         </div>
 
         <div style="background: var(--line); padding: 1.5rem; border-radius: 12px; margin-bottom: 1.5rem;">
-          <h3 style="color: var(--text);">❌ 음모론</h3>
-          <p>우리는 검증되지 않은 정보를 퍼뜨리지 않습니다. <strong>과학과 논리</strong>에 기반합니다.</p>
+          <h3 style="color: var(--text);" data-i18n="about.not_pursue3_title">❌ 음모론</h3>
+          <p><span data-i18n="about.not_pursue3_content">우리는 검증되지 않은 정보를 퍼뜨리지 않습니다. </span><strong data-i18n="about.not_pursue3_content_bold">과학과 논리</strong><span data-i18n="about.not_pursue3_content_end">에 기반합니다.</span></p>
         </div>
 
         <div style="background: var(--line); padding: 1.5rem; border-radius: 12px;">
-          <h3 style="color: var(--text);">❌ 상업적 이익 추구</h3>
-          <p>우리는 제품을 판매하지 않습니다. <strong>순수하게 지식과 커뮤니티</strong>에 집중합니다.</p>
+          <h3 style="color: var(--text);" data-i18n="about.not_pursue4_title">❌ 상업적 이익 추구</h3>
+          <p><span data-i18n="about.not_pursue4_content">우리는 제품을 판매하지 않습니다. </span><strong data-i18n="about.not_pursue4_content_bold">순수하게 지식과 커뮤니티</strong><span data-i18n="about.not_pursue4_content_end">에 집중합니다.</span></p>
         </div>
       </div>
     </section>
@@ -134,16 +142,16 @@
     <!-- 함께 만드는 미래 -->
     <section>
       <div class="container">
-        <h2>함께 만드는 미래</h2>
+        <h2 data-i18n="about.future_title">함께 만드는 미래</h2>
         <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 2rem;">
-          Korea Preppers Network는 단순한 정보 사이트가 아닙니다. 
-          우리는 <strong style="color: var(--accent);">살아있는 커뮤니티</strong>이며, 
-          끊임없이 배우고 공유하는 <strong style="color: var(--accent);">학습 네트워크</strong>입니다.
+          <span data-i18n="about.future_content1">Korea Preppers Network는 단순한 정보 사이트가 아닙니다. 
+          우리는 </span><strong style="color: var(--accent);" data-i18n="about.future_content1_highlight1">살아있는 커뮤니티</strong><span data-i18n="about.future_content1_part2">이며, 
+          끊임없이 배우고 공유하는 </span><strong style="color: var(--accent);" data-i18n="about.future_content1_highlight2">학습 네트워크</strong><span data-i18n="about.future_content1_end">입니다.</span>
         </p>
         <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 2rem;">
-          재난은 언제든 일어날 수 있지만, 우리가 함께 준비한다면 두렵지 않습니다. 
+          <span data-i18n="about.future_content2">재난은 언제든 일어날 수 있지만, 우리가 함께 준비한다면 두렵지 않습니다. 
           지식을 나누고, 경험을 공유하며, 서로를 지원할 때—
-          우리는 단순히 살아남는 것을 넘어 <strong style="color: var(--accent);">번영할 수 있습니다</strong>.
+          우리는 단순히 살아남는 것을 넘어 </span><strong style="color: var(--accent);" data-i18n="about.future_content2_highlight">번영할 수 있습니다</strong><span data-i18n="about.future_content2_end">.</span>
         </p>
       </div>
     </section>
@@ -151,9 +159,9 @@
     <!-- CTA -->
     <section>
       <div class="container" style="text-align: center;">
-        <h2>함께 준비하시겠습니까?</h2>
-        <p>Korea Preppers Network에 참여하여<br>생존 지식을 공유하고 공동체를 만들어가세요.</p>
-        <a href="join.html" class="btn">지금 참여하기</a>
+        <h2 data-i18n="about.cta_title">함께 준비하시겠습니까?</h2>
+        <p><span data-i18n="about.cta_content">Korea Preppers Network에 참여하여</span><br><span data-i18n="about.cta_content2">생존 지식을 공유하고 공동체를 만들어가세요.</span></p>
+        <a href="join.html" class="btn" data-i18n="about.cta_button">지금 참여하기</a>
       </div>
     </section>
   </main>
@@ -161,11 +169,12 @@
   <!-- 푸터 -->
   <footer>
     <div class="container">
-      <p>&copy; 2025 Korea Preppers Network. 질서 속의 긴장, 단순함 속의 지성.</p>
+      <p><span data-i18n="common.footer_copyright">&copy; 2025 Korea Preppers Network.</span> <span data-i18n="common.footer_text">질서 속의 긴장, 단순함 속의 지성.</span></p>
     </div>
   </footer>
 
   <script src="assets/script.js"></script>
+  <script src="assets/i18n.js"></script>
 </body>
 </html>
 

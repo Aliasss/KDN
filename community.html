@@ -3,23 +3,31 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>커뮤니티 - KPN</title>
+  <title data-i18n="community.title">커뮤니티 - KPN</title>
   <meta name="description" content="생존 인사이트를 공유하고 다른 준비자들과 소통하세요.">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
+  <!-- 언어 전환 버튼 -->
+  <div id="lang-switcher">
+    <button id="lang-btn" aria-label="Language Switcher">
+      <span class="lang-icon">🌐</span>
+      <span class="lang-code">KO</span>
+    </button>
+  </div>
+
   <!-- 네비게이션 -->
   <nav>
     <div class="container">
-      <div class="logo">KPN</div>
+      <div class="logo" data-i18n="common.logo">KPN</div>
       <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="knowledge.html">Knowledge</a></li>
-        <li><a href="scenario.html">Scenarios</a></li>
-        <li><a href="community.html">Community</a></li>
-        <li><a href="join.html">Join</a></li>
-        <li><a href="about.html">About</a></li>
+        <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+        <li><a href="knowledge.html" data-i18n="nav.knowledge">Knowledge</a></li>
+        <li><a href="scenario.html" data-i18n="nav.scenarios">Scenarios</a></li>
+        <li><a href="community.html" data-i18n="nav.community">Community</a></li>
+        <li><a href="join.html" data-i18n="nav.join">Join</a></li>
+        <li><a href="about.html" data-i18n="nav.about">About</a></li>
       </ul>
     </div>
   </nav>
@@ -31,27 +39,27 @@
   <main>
     <section class="hero">
       <div class="container">
-        <h1>커뮤니티</h1>
-        <p>생존에 대한 인사이트를 공유하고, 함께 준비하는 사람들과 소통하세요.</p>
+        <h1 data-i18n="community.hero_title">커뮤니티</h1>
+        <p data-i18n="community.hero_subtitle">생존에 대한 인사이트를 공유하고, 함께 준비하는 사람들과 소통하세요.</p>
       </div>
     </section>
 
     <!-- 인사이트 제출 폼 -->
     <section>
       <div class="container">
-        <h2>인사이트 공유하기</h2>
-        <p style="text-align: center; margin-bottom: 2rem; color: var(--subtle);">
+        <h2 data-i18n="community.share_title">인사이트 공유하기</h2>
+        <p style="text-align: center; margin-bottom: 2rem; color: var(--subtle);" data-i18n="community.share_subtitle">
           재난 대비 경험, 유용한 팁, 또는 생존 관련 생각을 공유해주세요.
         </p>
         
         <form id="insight-form">
-          <label for="nickname">닉네임</label>
-          <input type="text" id="nickname" name="nickname" placeholder="익명 또는 닉네임" required>
+          <label for="nickname" data-i18n="community.form_nickname_label">닉네임</label>
+          <input type="text" id="nickname" name="nickname" data-i18n-placeholder="community.form_nickname_placeholder" placeholder="익명 또는 닉네임" required>
 
-          <label for="insight">인사이트</label>
-          <textarea id="insight" name="insight" placeholder="당신의 생존 인사이트를 공유해주세요..." required></textarea>
+          <label for="insight" data-i18n="community.form_insight_label">인사이트</label>
+          <textarea id="insight" name="insight" data-i18n-placeholder="community.form_insight_placeholder" placeholder="당신의 생존 인사이트를 공유해주세요..." required></textarea>
 
-          <button type="submit">공유하기</button>
+          <button type="submit" data-i18n="community.form_submit_button">공유하기</button>
         </form>
 
         <div id="form-message" style="text-align: center; margin-top: 1rem; color: var(--accent);"></div>
@@ -61,35 +69,35 @@
     <!-- 공유된 인사이트 목록 -->
     <section>
       <div class="container">
-        <h2>공유된 인사이트</h2>
-        <p style="text-align: center; margin-bottom: 2rem; color: var(--subtle);">
+        <h2 data-i18n="community.insights_title">공유된 인사이트</h2>
+        <p style="text-align: center; margin-bottom: 2rem; color: var(--subtle);" data-i18n="community.insights_subtitle">
           커뮤니티 멤버들이 공유한 생존 지혜를 확인하세요.
         </p>
 
         <div id="insights-list" class="grid grid-2">
           <!-- 예시 인사이트 (실제로는 Google Sheets에서 불러옴) -->
           <div class="card">
-            <small style="color: var(--subtle);">준비자_001</small>
-            <p style="margin-top: 0.5rem;">비상 가방은 집에만 두지 말고 차량과 직장에도 작은 버전을 준비해두세요. 재난은 어디서든 일어날 수 있습니다.</p>
+            <small style="color: var(--subtle);" data-i18n="community.example1_author">준비자_001</small>
+            <p style="margin-top: 0.5rem;" data-i18n="community.example1_content">비상 가방은 집에만 두지 말고 차량과 직장에도 작은 버전을 준비해두세요. 재난은 어디서든 일어날 수 있습니다.</p>
           </div>
 
           <div class="card">
-            <small style="color: var(--subtle);">생존주의자_K</small>
-            <p style="margin-top: 0.5rem;">지식이 가장 중요한 자산입니다. 책으로 된 생존 매뉴얼을 반드시 구비하세요. 전기가 끊기면 디지털 정보는 무용지물입니다.</p>
+            <small style="color: var(--subtle);" data-i18n="community.example2_author">생존주의자_K</small>
+            <p style="margin-top: 0.5rem;" data-i18n="community.example2_content">지식이 가장 중요한 자산입니다. 책으로 된 생존 매뉴얼을 반드시 구비하세요. 전기가 끊기면 디지털 정보는 무용지물입니다.</p>
           </div>
 
           <div class="card">
-            <small style="color: var(--subtle);">프레퍼_서울</small>
-            <p style="margin-top: 0.5rem;">이웃과의 관계가 중요합니다. 재난 시 혼자서는 한계가 있어요. 평소에 커뮤니티를 만들어두세요.</p>
+            <small style="color: var(--subtle);" data-i18n="community.example3_author">프레퍼_서울</small>
+            <p style="margin-top: 0.5rem;" data-i18n="community.example3_content">이웃과의 관계가 중요합니다. 재난 시 혼자서는 한계가 있어요. 평소에 커뮤니티를 만들어두세요.</p>
           </div>
 
           <div class="card">
-            <small style="color: var(--subtle);">대비형_인간</small>
-            <p style="margin-top: 0.5rem;">물 정수 필터는 반드시 두 개 이상 준비하세요. 하나가 고장나면 대안이 없습니다. 백업의 백업을 준비하는 것이 생존입니다.</p>
+            <small style="color: var(--subtle);" data-i18n="community.example4_author">대비형_인간</small>
+            <p style="margin-top: 0.5rem;" data-i18n="community.example4_content">물 정수 필터는 반드시 두 개 이상 준비하세요. 하나가 고장나면 대안이 없습니다. 백업의 백업을 준비하는 것이 생존입니다.</p>
           </div>
         </div>
 
-        <p style="text-align: center; margin-top: 2rem; color: var(--subtle); font-size: 0.9rem;">
+        <p style="text-align: center; margin-top: 2rem; color: var(--subtle); font-size: 0.9rem;" data-i18n="community.note_text">
           * Google Sheets 연동 후 실시간으로 업데이트됩니다.
         </p>
       </div>
@@ -98,9 +106,9 @@
     <!-- CTA -->
     <section>
       <div class="container" style="text-align: center;">
-        <h2>아직 참여하지 않으셨나요?</h2>
-        <p>Korea Preppers Network에 공식 참여하여 더 많은 정보를 받아보세요.</p>
-        <a href="join.html" class="btn">참여 신청하기</a>
+        <h2 data-i18n="community.cta_title">아직 참여하지 않으셨나요?</h2>
+        <p data-i18n="community.cta_content">Korea Preppers Network에 공식 참여하여 더 많은 정보를 받아보세요.</p>
+        <a href="join.html" class="btn" data-i18n="community.cta_button">참여 신청하기</a>
       </div>
     </section>
   </main>
@@ -108,13 +116,14 @@
   <!-- 푸터 -->
   <footer>
     <div class="container">
-      <p>&copy; 2025 Korea Preppers Network. 질서 속의 긴장, 단순함 속의 지성.</p>
+      <p><span data-i18n="common.footer_copyright">&copy; 2025 Korea Preppers Network.</span> <span data-i18n="common.footer_text">질서 속의 긴장, 단순함 속의 지성.</span></p>
     </div>
   </footer>
 
   <script src="assets/script.js"></script>
   <script src="data/submit.js"></script>
   <script src="data/fetch_insights.js"></script>
+  <script src="assets/i18n.js"></script>
 </body>
 </html>
 

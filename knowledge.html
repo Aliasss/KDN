@@ -3,23 +3,31 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>생존 지식 아카이브 - KPN</title>
+  <title data-i18n="knowledge.title">생존 지식 아카이브 - KPN</title>
   <meta name="description" content="재난 상황에서 생존하기 위한 필수 지식을 카테고리별로 정리했습니다.">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
+  <!-- 언어 전환 버튼 -->
+  <div id="lang-switcher">
+    <button id="lang-btn" aria-label="Language Switcher">
+      <span class="lang-icon">🌐</span>
+      <span class="lang-code">KO</span>
+    </button>
+  </div>
+
   <!-- 네비게이션 -->
   <nav>
     <div class="container">
-      <div class="logo">KPN</div>
+      <div class="logo" data-i18n="common.logo">KPN</div>
       <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="knowledge.html">Knowledge</a></li>
-        <li><a href="scenario.html">Scenarios</a></li>
-        <li><a href="community.html">Community</a></li>
-        <li><a href="join.html">Join</a></li>
-        <li><a href="about.html">About</a></li>
+        <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+        <li><a href="knowledge.html" data-i18n="nav.knowledge">Knowledge</a></li>
+        <li><a href="scenario.html" data-i18n="nav.scenarios">Scenarios</a></li>
+        <li><a href="community.html" data-i18n="nav.community">Community</a></li>
+        <li><a href="join.html" data-i18n="nav.join">Join</a></li>
+        <li><a href="about.html" data-i18n="nav.about">About</a></li>
       </ul>
     </div>
   </nav>
@@ -31,8 +39,8 @@
   <main>
     <section class="hero">
       <div class="container">
-        <h1>생존 지식 아카이브</h1>
-        <p>재난과 위기 상황에서 생존하기 위한 핵심 지식을 체계적으로 정리했습니다.</p>
+        <h1 data-i18n="knowledge.hero_title">생존 지식 아카이브</h1>
+        <p data-i18n="knowledge.hero_subtitle">재난과 위기 상황에서 생존하기 위한 핵심 지식을 체계적으로 정리했습니다.</p>
       </div>
     </section>
 
@@ -40,218 +48,218 @@
       <div class="container">
         <!-- 식량 -->
         <div class="card" style="margin-bottom: 1.5rem;">
-          <h3>🌾 식량 확보 및 저장</h3>
+          <h3 data-i18n="knowledge.food_title">🌾 식량 확보 및 저장</h3>
           
-          <p style="color: var(--subtle); margin-bottom: 1.5rem; line-height: 1.8;">
+          <p style="color: var(--subtle); margin-bottom: 1.5rem; line-height: 1.8;" data-i18n="knowledge.food_overview">
             재난이나 위기 상황에서 식량은 가장 먼저 확보해야 할 자원 중 하나다. 그러나 단순히 많이 사두는 것보다 지속 가능하고 체계적인 식량 확보 및 보관 전략이 중요하다.
           </p>
 
-          <h4 style="color: var(--accent); margin-top: 1.5rem;">1. 장기 저장식품 선택 기준</h4>
+          <h4 style="color: var(--accent); margin-top: 1.5rem;" data-i18n="knowledge.food_section1_title">1. 장기 저장식품 선택 기준</h4>
           <ul style="margin-left: 1.5rem; line-height: 1.8; margin-bottom: 1rem;">
-            <li>냉장/냉동이 필요 없고, 조리 혹은 물 사용이 최소인 식품이 이상적이다</li>
-            <li>가족이 평소에 먹던 식품을 중심으로 준비해야 '사용 가능성'과 '정서적 만족'을 모두 충족할 수 있다</li>
-            <li>건조식품 중에서도 수분 함량이 낮고 기름기가 적은 원재료가 오랫동안 보관하기 유리하다</li>
+            <li data-i18n="knowledge.food_section1_item1">냉장/냉동이 필요 없고, 조리 혹은 물 사용이 최소인 식품이 이상적이다</li>
+            <li data-i18n="knowledge.food_section1_item2">가족이 평소에 먹던 식품을 중심으로 준비해야 '사용 가능성'과 '정서적 만족'을 모두 충족할 수 있다</li>
+            <li data-i18n="knowledge.food_section1_item3">건조식품 중에서도 수분 함량이 낮고 기름기가 적은 원재료가 오랫동안 보관하기 유리하다</li>
           </ul>
 
-          <h4 style="color: var(--accent);">2. 저장 환경 및 회전 관리</h4>
+          <h4 style="color: var(--accent);" data-i18n="knowledge.food_section2_title">2. 저장 환경 및 회전 관리</h4>
           <ul style="margin-left: 1.5rem; line-height: 1.8; margin-bottom: 1rem;">
-            <li>보관 장소는 '서늘하고 건조하며 햇빛이 들지 않는' 공간이 이상적이다</li>
-            <li>저장용기는 습기·해충·빛 노출을 최소화할 수 있는 밀폐용기가 적합하다</li>
-            <li>'선입선출(FIFO)' 원칙으로 저장 식품을 사용한 뒤 새로운 것을 추가하며 회전시키는 습관을 들여야 한다</li>
+            <li data-i18n="knowledge.food_section2_item1">보관 장소는 '서늘하고 건조하며 햇빛이 들지 않는' 공간이 이상적이다</li>
+            <li data-i18n="knowledge.food_section2_item2">저장용기는 습기·해충·빛 노출을 최소화할 수 있는 밀폐용기가 적합하다</li>
+            <li data-i18n="knowledge.food_section2_item3">'선입선출(FIFO)' 원칙으로 저장 식품을 사용한 뒤 새로운 것을 추가하며 회전시키는 습관을 들여야 한다</li>
           </ul>
 
-          <h4 style="color: var(--accent);">3. 단계별 확보 로드맵</h4>
+          <h4 style="color: var(--accent);" data-i18n="knowledge.food_section3_title">3. 단계별 확보 로드맵</h4>
           <ul style="margin-left: 1.5rem; line-height: 1.8; margin-bottom: 1rem;">
-            <li><strong>단기:</strong> 한 주치 여유분 추가 확보</li>
-            <li><strong>중기:</strong> 1개월치 식량 비축</li>
-            <li><strong>장기:</strong> 3개월 이상 혹은 자급자족 수준까지 확장</li>
-            <li>저장공간이나 예산이 제한적이라면 '매주 1~2품목씩' 구매하며 점진적으로 늘리는 것이 현실적이다</li>
+            <li data-i18n="knowledge.food_section3_item1"><strong>단기:</strong> 한 주치 여유분 추가 확보</li>
+            <li data-i18n="knowledge.food_section3_item2"><strong>중기:</strong> 1개월치 식량 비축</li>
+            <li data-i18n="knowledge.food_section3_item3"><strong>장기:</strong> 3개월 이상 혹은 자급자족 수준까지 확장</li>
+            <li data-i18n="knowledge.food_section3_item4">저장공간이나 예산이 제한적이라면 '매주 1~2품목씩' 구매하며 점진적으로 늘리는 것이 현실적이다</li>
           </ul>
 
-          <h4 style="color: var(--accent);">4. 구체적인 식품 예시 및 보관 팁</h4>
+          <h4 style="color: var(--accent);" data-i18n="knowledge.food_section4_title">4. 구체적인 식품 예시 및 보관 팁</h4>
           <ul style="margin-left: 1.5rem; line-height: 1.8;">
-            <li><strong>보관성 높은 식품:</strong> 흰 쌀, 통조림(고기/채소/과일), 건조콩/렌틸, 통밀·밀가루, 꿀·소금·식용유</li>
-            <li>바닥 직접 접촉을 피하고, 콘크리트 바닥은 습기로 인해 캔이 부식될 수 있으므로 선반이나 차단막 사용</li>
-            <li>저장 상태를 주기적으로 점검: 캔이 부풀거나 녹슬거나 틈새가 보이면 즉시 제거</li>
+            <li data-i18n="knowledge.food_section4_item1"><strong>보관성 높은 식품:</strong> 흰 쌀, 통조림(고기/채소/과일), 건조콩/렌틸, 통밀·밀가루, 꿀·소금·식용유</li>
+            <li data-i18n="knowledge.food_section4_item2">바닥 직접 접촉을 피하고, 콘크리트 바닥은 습기로 인해 캔이 부식될 수 있으므로 선반이나 차단막 사용</li>
+            <li data-i18n="knowledge.food_section4_item3">저장 상태를 주기적으로 점검: 캔이 부풀거나 녹슬거나 틈새가 보이면 즉시 제거</li>
           </ul>
         </div>
 
         <!-- 물 -->
         <div class="card" style="margin-bottom: 1.5rem;">
-          <h3>💧 식수 확보 및 정화</h3>
+          <h3 data-i18n="knowledge.water_title">💧 식수 확보 및 정화</h3>
           
-          <p style="color: var(--subtle); margin-bottom: 1.5rem; line-height: 1.8;">
+          <p style="color: var(--subtle); margin-bottom: 1.5rem; line-height: 1.8;" data-i18n="knowledge.water_overview">
             식수는 생존에 있어 필수적이다. 재난 시 상수도나 정수시설이 마비되기 쉬우므로, 일상에서부터 확보 가능한 물 자원과 정화 방법을 마련해 두는 것이 중요하다.
           </p>
 
-          <h4 style="color: var(--accent); margin-top: 1.5rem;">1. 비축량 가이드라인</h4>
+          <h4 style="color: var(--accent); margin-top: 1.5rem;" data-i18n="knowledge.water_section1_title">1. 비축량 가이드라인</h4>
           <ul style="margin-left: 1.5rem; line-height: 1.8; margin-bottom: 1rem;">
-            <li>일반적으로 1인당 하루 약 3리터 수준의 물을 확보하는 것이 권장된다</li>
-            <li>예컨대 14일치를 기준으로 한다면 42리터 정도를 목표로 할 수 있다</li>
-            <li>가능하다면 여유 기간을 더 늘리는 것이 바람직하다</li>
+            <li data-i18n="knowledge.water_section1_item1">일반적으로 1인당 하루 약 3리터 수준의 물을 확보하는 것이 권장된다</li>
+            <li data-i18n="knowledge.water_section1_item2">예컨대 14일치를 기준으로 한다면 42리터 정도를 목표로 할 수 있다</li>
+            <li data-i18n="knowledge.water_section1_item3">가능하다면 여유 기간을 더 늘리는 것이 바람직하다</li>
           </ul>
 
-          <h4 style="color: var(--accent);">2. 정수 및 대체 수원</h4>
+          <h4 style="color: var(--accent);" data-i18n="knowledge.water_section2_title">2. 정수 및 대체 수원</h4>
           <ul style="margin-left: 1.5rem; line-height: 1.8; margin-bottom: 1rem;">
-            <li>끓이기, 정수 필터, 정수 알약 등의 방법이 있으며, 상황에 따라 빗물·계곡·제습기 물 등도 고려해야 한다</li>
-            <li>상수도가 끊겼을 때를 대비해 정수 가능 수원과 정화도구를 미리 확보해 두어야 한다</li>
+            <li data-i18n="knowledge.water_section2_item1">끓이기, 정수 필터, 정수 알약 등의 방법이 있으며, 상황에 따라 빗물·계곡·제습기 물 등도 고려해야 한다</li>
+            <li data-i18n="knowledge.water_section2_item2">상수도가 끊겼을 때를 대비해 정수 가능 수원과 정화도구를 미리 확보해 두어야 한다</li>
           </ul>
 
-          <h4 style="color: var(--accent);">3. 물 저장 및 관리 팁</h4>
+          <h4 style="color: var(--accent);" data-i18n="knowledge.water_section3_title">3. 물 저장 및 관리 팁</h4>
           <ul style="margin-left: 1.5rem; line-height: 1.8;">
-            <li>물 저장용기는 깨끗하게 세척·소독 후 사용하고, 직사광선이 닿지 않는 서늘한 곳에 보관해야 한다</li>
-            <li>6개월마다 상태를 점검하거나 교체 주기를 정해두는 것이 좋다</li>
-            <li>냉장·냉동 식품이 있다면 정전 시 해당 식품을 살릴 수 있는 냉각 방법도 함께 고민해야 한다</li>
+            <li data-i18n="knowledge.water_section3_item1">물 저장용기는 깨끗하게 세척·소독 후 사용하고, 직사광선이 닿지 않는 서늘한 곳에 보관해야 한다</li>
+            <li data-i18n="knowledge.water_section3_item2">6개월마다 상태를 점검하거나 교체 주기를 정해두는 것이 좋다</li>
+            <li data-i18n="knowledge.water_section3_item3">냉장·냉동 식품이 있다면 정전 시 해당 식품을 살릴 수 있는 냉각 방법도 함께 고민해야 한다</li>
           </ul>
         </div>
 
         <!-- 에너지 -->
         <div class="card" style="margin-bottom: 1.5rem;">
-          <h3>⚡ 에너지 및 난방</h3>
+          <h3 data-i18n="knowledge.energy_title">⚡ 에너지 및 난방</h3>
           
-          <p style="color: var(--subtle); margin-bottom: 1.5rem; line-height: 1.8;">
+          <p style="color: var(--subtle); margin-bottom: 1.5rem; line-height: 1.8;" data-i18n="knowledge.energy_overview">
             전기·가스·난방 등이 중단될 경우 '기본 생활 유지'와 '체온 유지'가 생존의 핵심이 된다. 따라서 재난 대비 시 대체 에너지 수단과 난방 전략을 마련해 두는 것이 중요하다.
           </p>
 
-          <h4 style="color: var(--accent); margin-top: 1.5rem;">1. 대체 에너지원 준비</h4>
+          <h4 style="color: var(--accent); margin-top: 1.5rem;" data-i18n="knowledge.energy_section1_title">1. 대체 에너지원 준비</h4>
           <ul style="margin-left: 1.5rem; line-height: 1.8; margin-bottom: 1rem;">
-            <li>태양광 패널, 이동형 발전기, 보조배터리, 수동 충전기 등은 유틸리티가 마비됐을 때 유용하다</li>
-            <li>취사 및 난방을 위한 대체 방식으로 캠핑 스토브나 고체연료 등이 고려된다</li>
+            <li data-i18n="knowledge.energy_section1_item1">태양광 패널, 이동형 발전기, 보조배터리, 수동 충전기 등은 유틸리티가 마비됐을 때 유용하다</li>
+            <li data-i18n="knowledge.energy_section1_item2">취사 및 난방을 위한 대체 방식으로 캠핑 스토브나 고체연료 등이 고려된다</li>
           </ul>
 
-          <h4 style="color: var(--accent);">2. 조명 및 난방 수단</h4>
+          <h4 style="color: var(--accent);" data-i18n="knowledge.energy_section2_title">2. 조명 및 난방 수단</h4>
           <ul style="margin-left: 1.5rem; line-height: 1.8; margin-bottom: 1rem;">
-            <li>LED 랜턴, 헤드랜턴, 양초 등의 조명 대비가 필요하다</li>
-            <li>난방 측면에서는 담요, 침낭, 휴대용 난로 등이 생명선이 될 수 있다</li>
+            <li data-i18n="knowledge.energy_section2_item1">LED 랜턴, 헤드랜턴, 양초 등의 조명 대비가 필요하다</li>
+            <li data-i18n="knowledge.energy_section2_item2">난방 측면에서는 담요, 침낭, 휴대용 난로 등이 생명선이 될 수 있다</li>
           </ul>
 
-          <h4 style="color: var(--accent);">3. 장비 점검 및 유지 전략</h4>
+          <h4 style="color: var(--accent);" data-i18n="knowledge.energy_section3_title">3. 장비 점검 및 유지 전략</h4>
           <ul style="margin-left: 1.5rem; line-height: 1.8;">
-            <li>저장 연료(가스, 고체연료 등)와 배터리를 정기적으로 점검하고 '유통기한'이나 '사용 가능 상태'를 확인해야 한다</li>
-            <li>실제 사용 가능 여부를 '정기 테스트'해두는 것이 좋다</li>
+            <li data-i18n="knowledge.energy_section3_item1">저장 연료(가스, 고체연료 등)와 배터리를 정기적으로 점검하고 '유통기한'이나 '사용 가능 상태'를 확인해야 한다</li>
+            <li data-i18n="knowledge.energy_section3_item2">실제 사용 가능 여부를 '정기 테스트'해두는 것이 좋다</li>
           </ul>
         </div>
 
         <!-- 의료 -->
         <div class="card" style="margin-bottom: 1.5rem;">
-          <h3>🏥 의료 및 구급</h3>
+          <h3 data-i18n="knowledge.medical_title">🏥 의료 및 구급</h3>
           
-          <p style="color: var(--subtle); margin-bottom: 1.5rem; line-height: 1.8;">
+          <p style="color: var(--subtle); margin-bottom: 1.5rem; line-height: 1.8;" data-i18n="knowledge.medical_overview">
             급성 상황이나 만성질환이 있는 경우, 응급 의료 대비가 생존율을 결정하기도 한다. 따라서 단순히 약품을 갖춰두는 것이 아니라 처치 지식 및 심리적 대비를 갖추는 것이 중요하다.
           </p>
 
-          <h4 style="color: var(--accent); margin-top: 1.5rem;">1. 기본 구급 키트 구성</h4>
+          <h4 style="color: var(--accent); margin-top: 1.5rem;" data-i18n="knowledge.medical_section1_title">1. 기본 구급 키트 구성</h4>
           <ul style="margin-left: 1.5rem; line-height: 1.8; margin-bottom: 1rem;">
-            <li>소독약, 붕대, 거즈, 반창고, 지혈제 등의 기본 항목</li>
-            <li>만성질환자나 처방약이 필요한 가족이 있다면 최소 1개월치 이상 비축하는 것이 바람직하다</li>
+            <li data-i18n="knowledge.medical_section1_item1">소독약, 붕대, 거즈, 반창고, 지혈제 등의 기본 항목</li>
+            <li data-i18n="knowledge.medical_section1_item2">만성질환자나 처방약이 필요한 가족이 있다면 최소 1개월치 이상 비축하는 것이 바람직하다</li>
           </ul>
 
-          <h4 style="color: var(--accent);">2. 응급처치 지식</h4>
+          <h4 style="color: var(--accent);" data-i18n="knowledge.medical_section2_title">2. 응급처치 지식</h4>
           <ul style="margin-left: 1.5rem; line-height: 1.8; margin-bottom: 1rem;">
-            <li>CPR, 지혈법, 골절 응급처치 등 기본적인 처치 방법에 대한 숙련이 필요하다</li>
-            <li>위기 상황에서 의사/구급차 도착까지의 첫 5~10분이 매우 중요하다</li>
+            <li data-i18n="knowledge.medical_section2_item1">CPR, 지혈법, 골절 응급처치 등 기본적인 처치 방법에 대한 숙련이 필요하다</li>
+            <li data-i18n="knowledge.medical_section2_item2">위기 상황에서 의사/구급차 도착까지의 첫 5~10분이 매우 중요하다</li>
           </ul>
 
-          <h4 style="color: var(--accent);">3. 정신건강 및 공동체 지원</h4>
+          <h4 style="color: var(--accent);" data-i18n="knowledge.medical_section3_title">3. 정신건강 및 공동체 지원</h4>
           <ul style="margin-left: 1.5rem; line-height: 1.8;">
-            <li>재난은 신체적 피해 외에도 심리적 충격을 동반하며, 고립감·불안감·스트레스가 생존을 저해할 수 있다</li>
-            <li>명상, 심호흡, 집단 지지체계 등을 포함한 '정신건강 유지 전략'도 중요하다</li>
+            <li data-i18n="knowledge.medical_section3_item1">재난은 신체적 피해 외에도 심리적 충격을 동반하며, 고립감·불안감·스트레스가 생존을 저해할 수 있다</li>
+            <li data-i18n="knowledge.medical_section3_item2">명상, 심호흡, 집단 지지체계 등을 포함한 '정신건강 유지 전략'도 중요하다</li>
           </ul>
         </div>
 
         <!-- 통신 -->
         <div class="card" style="margin-bottom: 1.5rem;">
-          <h3>📡 통신 및 정보</h3>
+          <h3 data-i18n="knowledge.communication_title">📡 통신 및 정보</h3>
           
-          <p style="color: var(--subtle); margin-bottom: 1.5rem; line-height: 1.8;">
+          <p style="color: var(--subtle); margin-bottom: 1.5rem; line-height: 1.8;" data-i18n="knowledge.communication_overview">
             정전이나 통신망 마비 상황에서 "정보가 곧 생존 자원"이 되며, 따라서 비상 통신 경로와 정보 백업 체계를 마련해 두어야 한다.
           </p>
 
-          <h4 style="color: var(--accent); margin-top: 1.5rem;">1. 비상 통신 장비</h4>
+          <h4 style="color: var(--accent); margin-top: 1.5rem;" data-i18n="knowledge.communication_section1_title">1. 비상 통신 장비</h4>
           <ul style="margin-left: 1.5rem; line-height: 1.8; margin-bottom: 1rem;">
-            <li>휴대용 라디오(배터리 또는 핸드크랭크 방식), 무전기, 호루라기 등이 포함된다</li>
-            <li>오프라인 지도나 종이 백업 형태의 연락처 등을 확보해 두는 것이 좋다</li>
+            <li data-i18n="knowledge.communication_section1_item1">휴대용 라디오(배터리 또는 핸드크랭크 방식), 무전기, 호루라기 등이 포함된다</li>
+            <li data-i18n="knowledge.communication_section1_item2">오프라인 지도나 종이 백업 형태의 연락처 등을 확보해 두는 것이 좋다</li>
           </ul>
 
-          <h4 style="color: var(--accent);">2. 연락 및 집결 체계</h4>
+          <h4 style="color: var(--accent);" data-i18n="knowledge.communication_section2_title">2. 연락 및 집결 체계</h4>
           <ul style="margin-left: 1.5rem; line-height: 1.8;">
-            <li>가족/커뮤니티 구성원 간 미리 정해둔 '집합 장소'나 '비상 연락체계'를 마련해 두어야 한다</li>
-            <li>중요 정보(예: 체크리스트, 대피경로 등)는 디지털 + 종이 백업 형태로 확보하는 것이 바람직하다</li>
+            <li data-i18n="knowledge.communication_section2_item1">가족/커뮤니티 구성원 간 미리 정해둔 '집합 장소'나 '비상 연락체계'를 마련해 두어야 한다</li>
+            <li data-i18n="knowledge.communication_section2_item2">중요 정보(예: 체크리스트, 대피경로 등)는 디지털 + 종이 백업 형태로 확보하는 것이 바람직하다</li>
           </ul>
         </div>
 
         <!-- 보안 및 방어 -->
         <div class="card" style="margin-bottom: 1.5rem;">
-          <h3>🔒 보안 및 방어</h3>
+          <h3 data-i18n="knowledge.security_title">🔒 보안 및 방어</h3>
           
-          <p style="color: var(--subtle); margin-bottom: 1.5rem; line-height: 1.8;">
+          <p style="color: var(--subtle); margin-bottom: 1.5rem; line-height: 1.8;" data-i18n="knowledge.security_overview">
             재난 상황에서는 보안 취약성과 범죄 위험이 상승하기 때문에 물리적 보안뿐 아니라 공동체 차원의 방어 전략을 갖추는 것이 중요하다.
           </p>
 
-          <h4 style="color: var(--accent); margin-top: 1.5rem;">1. 물리적 보안</h4>
+          <h4 style="color: var(--accent); margin-top: 1.5rem;" data-i18n="knowledge.security_section1_title">1. 물리적 보안</h4>
           <ul style="margin-left: 1.5rem; line-height: 1.8; margin-bottom: 1rem;">
-            <li>문·창문의 잠금 강화, 대피 경로 확보, 가시적 조명 확보 등이 기본이다</li>
-            <li>위험이 높은 환경에서는 방범창, 경보장치, 이동식 잠금장치 등이 고려된다</li>
+            <li data-i18n="knowledge.security_section1_item1">문·창문의 잠금 강화, 대피 경로 확보, 가시적 조명 확보 등이 기본이다</li>
+            <li data-i18n="knowledge.security_section1_item2">위험이 높은 환경에서는 방범창, 경보장치, 이동식 잠금장치 등이 고려된다</li>
           </ul>
 
-          <h4 style="color: var(--accent);">2. 방어 도구 및 공동체 역할</h4>
+          <h4 style="color: var(--accent);" data-i18n="knowledge.security_section2_title">2. 방어 도구 및 공동체 역할</h4>
           <ul style="margin-left: 1.5rem; line-height: 1.8;">
-            <li>소화기, 기본 공구, 호신용품 등이 준비물이다</li>
-            <li>커뮤니티 단위로 역할을 분담하고 감시·경보 체계를 마련하면 개인 대비보다 훨씬 효과적이다</li>
+            <li data-i18n="knowledge.security_section2_item1">소화기, 기본 공구, 호신용품 등이 준비물이다</li>
+            <li data-i18n="knowledge.security_section2_item2">커뮤니티 단위로 역할을 분담하고 감시·경보 체계를 마련하면 개인 대비보다 훨씬 효과적이다</li>
           </ul>
         </div>
 
         <!-- 스킬 및 지식 -->
         <div class="card" style="margin-bottom: 1.5rem;">
-          <h3>🛠️ 필수 스킬 및 도구</h3>
+          <h3 data-i18n="knowledge.skills_title">🛠️ 필수 스킬 및 도구</h3>
           
-          <p style="color: var(--subtle); margin-bottom: 1.5rem; line-height: 1.8;">
+          <p style="color: var(--subtle); margin-bottom: 1.5rem; line-height: 1.8;" data-i18n="knowledge.skills_overview">
             도구만 준비해두는 것보다 '사용 가능한 기술'을 갖추는 것이 생존의 핵심이다. 스킬이 있는 커뮤니티는 더 강력하다.
           </p>
 
-          <h4 style="color: var(--accent); margin-top: 1.5rem;">1. 기본 도구 및 사용법</h4>
+          <h4 style="color: var(--accent); margin-top: 1.5rem;" data-i18n="knowledge.skills_section1_title">1. 기본 도구 및 사용법</h4>
           <ul style="margin-left: 1.5rem; line-height: 1.8; margin-bottom: 1rem;">
-            <li>멀티툴, 칼, 톱, 로프, 덕테이프 등은 만능 생존도구다</li>
-            <li>이러한 도구를 '언제 어떻게 사용하겠다'는 플랜까지 갖추면 준비 수준이 올라간다</li>
+            <li data-i18n="knowledge.skills_section1_item1">멀티툴, 칼, 톱, 로프, 덕테이프 등은 만능 생존도구다</li>
+            <li data-i18n="knowledge.skills_section1_item2">이러한 도구를 '언제 어떻게 사용하겠다'는 플랜까지 갖추면 준비 수준이 올라간다</li>
           </ul>
 
-          <h4 style="color: var(--accent);">2. 생존 스킬</h4>
+          <h4 style="color: var(--accent);" data-i18n="knowledge.skills_section2_title">2. 생존 스킬</h4>
           <ul style="margin-left: 1.5rem; line-height: 1.8; margin-bottom: 1rem;">
-            <li>불 지피기, 매듭법, 간이 쉼터 제작 등은 자연/비상환경에서 유용하다</li>
-            <li>기계/전기/목공 등의 기본 기술이 있으면 '자급자족 + 커뮤니티 기여'가 가능해진다</li>
+            <li data-i18n="knowledge.skills_section2_item1">불 지피기, 매듭법, 간이 쉼터 제작 등은 자연/비상환경에서 유용하다</li>
+            <li data-i18n="knowledge.skills_section2_item2">기계/전기/목공 등의 기본 기술이 있으면 '자급자족 + 커뮤니티 기여'가 가능해진다</li>
           </ul>
 
-          <h4 style="color: var(--accent);">3. 지식 백업</h4>
+          <h4 style="color: var(--accent);" data-i18n="knowledge.skills_section3_title">3. 지식 백업</h4>
           <ul style="margin-left: 1.5rem; line-height: 1.8;">
-            <li>네트워크 단절을 대비해 인쇄형 매뉴얼이나 생존 가이드북을 직접 준비해 두는 것이 좋다</li>
-            <li>디지털보다 아날로그 매체가 상황 변화 시 훨씬 안정적일 수 있다</li>
+            <li data-i18n="knowledge.skills_section3_item1">네트워크 단절을 대비해 인쇄형 매뉴얼이나 생존 가이드북을 직접 준비해 두는 것이 좋다</li>
+            <li data-i18n="knowledge.skills_section3_item2">디지털보다 아날로그 매체가 상황 변화 시 훨씬 안정적일 수 있다</li>
           </ul>
         </div>
 
         <!-- 심리 및 공동체 -->
         <div class="card">
-          <h3>🧠 심리적 준비 및 공동체</h3>
+          <h3 data-i18n="knowledge.psychology_title">🧠 심리적 준비 및 공동체</h3>
           
-          <p style="color: var(--subtle); margin-bottom: 1.5rem; line-height: 1.8;">
+          <p style="color: var(--subtle); margin-bottom: 1.5rem; line-height: 1.8;" data-i18n="knowledge.psychology_overview">
             생존은 단지 자원 확보만으로 이루어지지 않는다. 위기 상황에서는 심리적 강인함과 공동체적 연대가 핵심적이다.
           </p>
 
-          <h4 style="color: var(--accent); margin-top: 1.5rem;">1. 위기 대응 마음가짐</h4>
+          <h4 style="color: var(--accent); margin-top: 1.5rem;" data-i18n="knowledge.psychology_section1_title">1. 위기 대응 마음가짐</h4>
           <ul style="margin-left: 1.5rem; line-height: 1.8; margin-bottom: 1rem;">
-            <li>패닉보다는 냉정한 사고가 생존율을 높인다. 감정이 흐트러지면 판단 오류가 생기기 쉽다</li>
-            <li>불확실성이 클 때는 단계별 문제해결 전략을 갖는 것이 유리하다</li>
+            <li data-i18n="knowledge.psychology_section1_item1">패닉보다는 냉정한 사고가 생존율을 높인다. 감정이 흐트러지면 판단 오류가 생기기 쉽다</li>
+            <li data-i18n="knowledge.psychology_section1_item2">불확실성이 클 때는 단계별 문제해결 전략을 갖는 것이 유리하다</li>
           </ul>
 
-          <h4 style="color: var(--accent);">2. 리더십 & 역할 정의</h4>
+          <h4 style="color: var(--accent);" data-i18n="knowledge.psychology_section2_title">2. 리더십 & 역할 정의</h4>
           <ul style="margin-left: 1.5rem; line-height: 1.8; margin-bottom: 1rem;">
-            <li>위기 상황에서는 명확한 의사소통·책임·역할구분이 중요하다</li>
-            <li>공동체 내에서 누가 어떤 역할(식량 관리/의료/통신 등)을 맡을지 미리 정해두면 대응 속도가 빨라진다</li>
+            <li data-i18n="knowledge.psychology_section2_item1">위기 상황에서는 명확한 의사소통·책임·역할구분이 중요하다</li>
+            <li data-i18n="knowledge.psychology_section2_item2">공동체 내에서 누가 어떤 역할(식량 관리/의료/통신 등)을 맡을지 미리 정해두면 대응 속도가 빨라진다</li>
           </ul>
 
-          <h4 style="color: var(--accent);">3. 공동체 역량 구축</h4>
+          <h4 style="color: var(--accent);" data-i18n="knowledge.psychology_section3_title">3. 공동체 역량 구축</h4>
           <ul style="margin-left: 1.5rem; line-height: 1.8;">
-            <li>기술·자원·정보를 공유하는 신뢰 관계가 위기 생존을 가속한다</li>
-            <li>적응력 있고 유연한 사고방식을 훈련해두면 변화하는 환경에서도 유리하다</li>
+            <li data-i18n="knowledge.psychology_section3_item1">기술·자원·정보를 공유하는 신뢰 관계가 위기 생존을 가속한다</li>
+            <li data-i18n="knowledge.psychology_section3_item2">적응력 있고 유연한 사고방식을 훈련해두면 변화하는 환경에서도 유리하다</li>
           </ul>
         </div>
       </div>
@@ -260,9 +268,9 @@
     <!-- CTA -->
     <section>
       <div class="container" style="text-align: center;">
-        <h2>더 많은 지식이 필요하신가요?</h2>
-        <p>커뮤니티에 참여하여 다른 준비자들과 경험을 나누세요.</p>
-        <a href="community.html" class="btn">커뮤니티 가기</a>
+        <h2 data-i18n="knowledge.cta_title">더 많은 지식이 필요하신가요?</h2>
+        <p data-i18n="knowledge.cta_content">커뮤니티에 참여하여 다른 준비자들과 경험을 나누세요.</p>
+        <a href="community.html" class="btn" data-i18n="knowledge.cta_button">커뮤니티 가기</a>
       </div>
     </section>
   </main>
@@ -270,11 +278,12 @@
   <!-- 푸터 -->
   <footer>
     <div class="container">
-      <p>&copy; 2025 Korea Preppers Network. 질서 속의 긴장, 단순함 속의 지성.</p>
+      <p><span data-i18n="common.footer_copyright">&copy; 2025 Korea Preppers Network.</span> <span data-i18n="common.footer_text">질서 속의 긴장, 단순함 속의 지성.</span></p>
     </div>
   </footer>
 
   <script src="assets/script.js"></script>
+  <script src="assets/i18n.js"></script>
 </body>
 </html>
 

@@ -257,6 +257,46 @@ textarea {
   color: var(--accent);
 }
 
+/* 언어 전환 버튼 */
+#lang-switcher {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 1001;
+}
+
+#lang-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(13, 13, 13, 0.95);
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 0.9rem;
+  font-weight: 500;
+  backdrop-filter: blur(10px);
+}
+
+#lang-btn:hover {
+  background: var(--accent);
+  color: var(--bg);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(127, 90, 240, 0.3);
+}
+
+.lang-icon {
+  font-size: 1.1rem;
+}
+
+.lang-code {
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
 /* 푸터 */
 footer {
   border-top: 1px solid var(--line);
@@ -291,6 +331,21 @@ footer {
 
   section {
     padding: 2rem 0;
+  }
+
+  /* 언어 전환 버튼 모바일 */
+  #lang-switcher {
+    top: 0.7rem;
+    right: 0.7rem;
+  }
+
+  #lang-btn {
+    padding: 0.5rem 0.8rem;
+    font-size: 0.85rem;
+  }
+
+  .lang-icon {
+    font-size: 1rem;
   }
 }
 
