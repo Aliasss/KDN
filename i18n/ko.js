@@ -12,6 +12,7 @@ const ko = {
     home: 'Home',
     knowledge: 'Knowledge',
     scenarios: 'Scenarios',
+    simulation: 'Simulation',
     community: 'Community',
     join: 'Join',
     about: 'About'
@@ -643,6 +644,32 @@ const ko = {
     cta_content: 'Korea Preppers Network에 참여하여',
     cta_content2: '생존 지식을 공유하고 공동체를 만들어가세요.',
     cta_button: '지금 참여하기'
+  },
+
+  // Simulation 페이지
+  simulation: {
+    title: '생존 시뮬레이션 - KPN',
+    meta_description: '실제 재난 상황을 체험하고 당신의 생존 능력을 테스트하세요.',
+    hero_title: '🎮 생존 시뮬레이션',
+    hero_subtitle: '실제 재난 상황을 체험하고 당신의 생존 능력을 테스트하세요.',
+    hero_desc: '선택에 따라 생존율이 달라집니다. 신중하게 판단하세요.',
+    
+    select_scenario: '시나리오 선택',
+    
+    zombie_title: '좀비 아포칼립스',
+    zombie_desc: '사회 붕괴와 생존자들의 갈등',
+    nuclear_title: '핵전쟁/방사능',
+    nuclear_desc: '방사능 낙진과 생존 전략',
+    blackout_title: '장기 정전',
+    blackout_desc: '블랙아웃과 인프라 마비',
+    
+    step: 'Step',
+    survival_rate: '생존율',
+    your_type: '당신의 유형',
+    decision_analysis: '의사결정 분석',
+    retry: '다시 도전하기',
+    share: '결과 공유하기',
+    share_community: '커뮤니티에 공유하기'
   }
 };
 

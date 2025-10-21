@@ -1,0 +1,319 @@
+/* 시뮬레이션 전용 스타일 */
+
+.sim-screen {
+  display: none;
+  min-height: 80vh;
+  padding: 3rem 0;
+}
+
+.sim-screen.active {
+  display: block;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* 시나리오 선택 */
+.scenario-selection {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.scenario-card {
+  background: var(--bg);
+  border: 2px solid var(--line);
+  border-radius: 12px;
+  padding: 2rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.scenario-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(127, 90, 240, 0.3);
+}
+
+.scenario-icon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+}
+
+.scenario-meta {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: var(--subtle);
+}
+
+/* 진행률 바 */
+.progress-bar {
+  position: relative;
+  width: 100%;
+  height: 30px;
+  background: var(--line);
+  border-radius: 15px;
+  overflow: hidden;
+  margin-bottom: 2rem;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent), #9d7af5);
+  transition: width 0.5s ease;
+  width: 0%;
+}
+
+.progress-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-weight: 600;
+  color: var(--text);
+  z-index: 1;
+}
+
+/* 생존율 게이지 */
+.survival-gauge {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  padding: 1rem;
+  background: var(--line);
+  border-radius: 12px;
+}
+
+.gauge-label {
+  font-weight: 600;
+  min-width: 80px;
+}
+
+.gauge-bar {
+  flex: 1;
+  height: 20px;
+  background: #2a2a2a;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.gauge-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #ff6b6b, #feca57, #48dbfb, #1dd1a1);
+  transition: width 0.5s ease;
+  width: 100%;
+}
+
+.gauge-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--accent);
+  min-width: 80px;
+  text-align: right;
+}
+
+/* 스토리 박스 */
+.story-box {
+  background: var(--line);
+  border-radius: 12px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  min-height: 200px;
+}
+
+.story-text {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--text);
+}
+
+/* 선택지 */
+.choices {
+  display: grid;
+  gap: 1rem;
+}
+
+.choice-btn {
+  background: var(--bg);
+  border: 2px solid var(--accent);
+  color: var(--text);
+  padding: 1.5rem;
+  border-radius: 12px;
+  font-size: 1rem;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  font-family: inherit;
+}
+
+.choice-btn:hover {
+  background: var(--accent);
+  transform: translateX(10px);
+}
+
+.choice-btn:before {
+  content: '→';
+  position: absolute;
+  right: 1.5rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.choice-btn:hover:before {
+  opacity: 1;
+}
+
+/* 결과 화면 */
+.result-box {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.survival-result {
+  margin: 3rem 0;
+}
+
+.survival-circle {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  margin: 2rem auto;
+}
+
+.survival-circle svg {
+  transform: rotate(-90deg);
+}
+
+.survival-circle circle {
+  fill: none;
+  stroke-width: 15;
+}
+
+.survival-circle circle:first-child {
+  stroke: var(--line);
+}
+
+.survival-circle circle:last-child {
+  stroke: var(--accent);
+  stroke-dasharray: 565;
+  stroke-dashoffset: 565;
+  transition: stroke-dashoffset 2s ease;
+}
+
+.survival-number {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.result-type {
+  margin: 3rem 0;
+}
+
+.type-badge {
+  display: inline-block;
+  background: var(--accent);
+  color: var(--bg);
+  padding: 0.8rem 2rem;
+  border-radius: 50px;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 1rem 0;
+}
+
+.type-desc {
+  font-size: 1.1rem;
+  color: var(--subtle);
+  margin-top: 1rem;
+}
+
+.result-analysis {
+  margin: 3rem 0;
+  text-align: left;
+}
+
+#analysis-content {
+  margin-top: 1.5rem;
+}
+
+.analysis-item {
+  background: var(--line);
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.analysis-step {
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+}
+
+.analysis-choice {
+  margin-bottom: 0.5rem;
+}
+
+.analysis-impact {
+  font-size: 0.9rem;
+  color: var(--subtle);
+}
+
+.result-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 3rem;
+  flex-wrap: wrap;
+}
+
+.btn-secondary {
+  background: transparent;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+}
+
+.btn-secondary:hover {
+  background: var(--accent);
+  color: var(--bg);
+}
+
+/* 반응형 */
+@media (max-width: 768px) {
+  .scenario-selection {
+    grid-template-columns: 1fr;
+  }
+  
+  .survival-gauge {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .gauge-label,
+  .gauge-value {
+    text-align: center;
+  }
+  
+  .result-actions {
+    flex-direction: column;
+  }
+  
+  .result-actions .btn,
+  .result-actions .btn-secondary {
+    width: 100%;
+  }
+}
+

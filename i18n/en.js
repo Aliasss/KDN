@@ -12,6 +12,7 @@ const en = {
     home: 'Home',
     knowledge: 'Knowledge',
     scenarios: 'Scenarios',
+    simulation: 'Simulation',
     community: 'Community',
     join: 'Join',
     about: 'About'
@@ -643,6 +644,32 @@ const en = {
     cta_content: 'Join Korea Preppers Network',
     cta_content2: 'to share survival knowledge and build a community.',
     cta_button: 'Join Now'
+  },
+
+  // Simulation page
+  simulation: {
+    title: 'Survival Simulation - KPN',
+    meta_description: 'Experience real disaster situations and test your survival skills.',
+    hero_title: '🎮 Survival Simulation',
+    hero_subtitle: 'Experience real disaster situations and test your survival skills.',
+    hero_desc: 'Your survival rate changes based on your choices. Choose wisely.',
+    
+    select_scenario: 'Select Scenario',
+    
+    zombie_title: 'Zombie Apocalypse',
+    zombie_desc: 'Social collapse and survivor conflicts',
+    nuclear_title: 'Nuclear War/Radiation',
+    nuclear_desc: 'Radiation fallout and survival strategies',
+    blackout_title: 'Long-term Blackout',
+    blackout_desc: 'Infrastructure collapse and power outage',
+    
+    step: 'Step',
+    survival_rate: 'Survival Rate',
+    your_type: 'Your Type',
+    decision_analysis: 'Decision Analysis',
+    retry: 'Try Again',
+    share: 'Share Results',
+    share_community: 'Share with Community'
   }
 };
 

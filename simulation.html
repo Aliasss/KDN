@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-i18n="simulation.title">생존 시뮬레이션 - KPN</title>
+  <meta name="description" content="실제 재난 상황을 체험하고 당신의 생존 능력을 테스트하세요.">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="stylesheet" href="assets/style.css">
+  <link rel="stylesheet" href="assets/simulation.css">
+</head>
+<body>
+  <!-- 언어 전환 버튼 -->
+  <div id="lang-switcher">
+    <button id="lang-btn" aria-label="Language Switcher">
+      <span class="lang-icon">🌐</span>
+      <span class="lang-code">KO</span>
+    </button>
+  </div>
+
+  <!-- 네비게이션 -->
+  <nav>
+    <div class="container">
+      <div class="logo" data-i18n="common.logo">KPN</div>
+      <ul>
+        <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+        <li><a href="knowledge.html" data-i18n="nav.knowledge">Knowledge</a></li>
+        <li><a href="scenario.html" data-i18n="nav.scenarios">Scenarios</a></li>
+        <li><a href="simulation.html" data-i18n="nav.simulation">Simulation</a></li>
+        <li><a href="community.html" data-i18n="nav.community">Community</a></li>
+        <li><a href="join.html" data-i18n="nav.join">Join</a></li>
+        <li><a href="about.html" data-i18n="nav.about">About</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- 환영 메시지 -->
+  <div id="welcome" class="container welcome" style="display: none;"></div>
+
+  <!-- 메인 컨텐츠 -->
+  <main>
+    <!-- 시작 화면 -->
+    <section id="sim-intro" class="sim-screen active">
+      <div class="container">
+        <h1 data-i18n="simulation.hero_title">🎮 생존 시뮬레이션</h1>
+        <p data-i18n="simulation.hero_subtitle" style="text-align: center; font-size: 1.2rem; margin-bottom: 1rem;">
+          실제 재난 상황을 체험하고 당신의 생존 능력을 테스트하세요.
+        </p>
+        <p style="text-align: center; color: var(--subtle); margin-bottom: 3rem;">
+          <span data-i18n="simulation.hero_desc">선택에 따라 생존율이 달라집니다. 신중하게 판단하세요.</span>
+        </p>
+        
+        <h2 data-i18n="simulation.select_scenario" style="text-align: center; margin-bottom: 2rem;">시나리오 선택</h2>
+        
+        <div class="scenario-selection">
+          <div class="scenario-card" data-scenario="zombie">
+            <div class="scenario-icon">🧟‍♂️</div>
+            <h3 data-i18n="simulation.zombie_title">좀비 아포칼립스</h3>
+            <p data-i18n="simulation.zombie_desc">사회 붕괴와 생존자들의 갈등</p>
+            <div class="scenario-meta">
+              <span>⏱️ 15분</span>
+              <span>📊 난이도: ★★★★☆</span>
+            </div>
+          </div>
+
+          <div class="scenario-card" data-scenario="nuclear">
+            <div class="scenario-icon">☢️</div>
+            <h3 data-i18n="simulation.nuclear_title">핵전쟁/방사능</h3>
+            <p data-i18n="simulation.nuclear_desc">방사능 낙진과 생존 전략</p>
+            <div class="scenario-meta">
+              <span>⏱️ 12분</span>
+              <span>📊 난이도: ★★★★★</span>
+            </div>
+          </div>
+
+          <div class="scenario-card" data-scenario="blackout">
+            <div class="scenario-icon">🔌</div>
+            <h3 data-i18n="simulation.blackout_title">장기 정전</h3>
+            <p data-i18n="simulation.blackout_desc">블랙아웃과 인프라 마비</p>
+            <div class="scenario-meta">
+              <span>⏱️ 10분</span>
+              <span>📊 난이도: ★★★☆☆</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 게임 화면 -->
+    <section id="sim-game" class="sim-screen">
+      <div class="container">
+        <!-- 진행률 바 -->
+        <div class="progress-bar">
+          <div class="progress-fill"></div>
+          <div class="progress-text">
+            <span data-i18n="simulation.step">Step</span> <span id="current-step">1</span> / <span id="total-steps">15</span>
+          </div>
+        </div>
+
+        <!-- 생존율 게이지 -->
+        <div class="survival-gauge">
+          <div class="gauge-label" data-i18n="simulation.survival_rate">생존율</div>
+          <div class="gauge-bar">
+            <div class="gauge-fill" id="survival-fill"></div>
+          </div>
+          <div class="gauge-value"><span id="survival-percent">100</span>%</div>
+        </div>
+
+        <!-- 스토리 컨텐츠 -->
+        <div class="story-box">
+          <div class="story-text" id="story-text"></div>
+        </div>
+
+        <!-- 선택지 -->
+        <div class="choices" id="choices"></div>
+      </div>
+    </section>
+
+    <!-- 결과 화면 -->
+    <section id="sim-result" class="sim-screen">
+      <div class="container">
+        <div class="result-box">
+          <h1 id="result-title"></h1>
+          
+          <div class="survival-result">
+            <div class="survival-circle">
+              <svg viewBox="0 0 200 200">
+                <circle cx="100" cy="100" r="90" />
+                <circle cx="100" cy="100" r="90" id="survival-circle" />
+              </svg>
+              <div class="survival-number"><span id="final-survival">85</span>%</div>
+            </div>
+          </div>
+
+          <div class="result-type">
+            <h2 data-i18n="simulation.your_type">당신의 유형</h2>
+            <div class="type-badge" id="type-badge"></div>
+            <p class="type-desc" id="type-desc"></p>
+          </div>
+
+          <div class="result-analysis">
+            <h3 data-i18n="simulation.decision_analysis">의사결정 분석</h3>
+            <div id="analysis-content"></div>
+          </div>
+
+          <div class="result-actions">
+            <button class="btn" id="retry-btn" data-i18n="simulation.retry">다시 도전하기</button>
+            <a href="community.html" class="btn btn-secondary" data-i18n="simulation.share_community">커뮤니티에 공유하기</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 푸터 -->
+  <footer>
+    <div class="container">
+      <p>
+        <span data-i18n="common.footer_copyright">&copy; 2025 Korea Preppers Network.</span>
+        <span data-i18n="common.footer_text">질서 속의 긴장, 단순함 속의 지성.</span>
+      </p>
+    </div>
+  </footer>
+
+  <script src="assets/script.js"></script>
+  <script src="assets/i18n.js"></script>
+  <script src="data/scenarios.js"></script>
+  <script src="assets/simulation.js"></script>
+</body>
+</html>
+
