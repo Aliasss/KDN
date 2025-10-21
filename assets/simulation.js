@@ -312,24 +312,28 @@ async function saveResult() {
     console.error('Failed to save to localStorage:', e);
   }
   
-  // Google Sheets 저장 (선택사항 - 통계용)
-  // 추후 구현 가능
-  /*
+  // Google Sheets 저장 (통계용)
   try {
+    const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwXD7MG2MW5fYIBjsCAEkSlGt5F7oBSpEFa7mwU4amREcORwcu16r_CGN-8OOtcCcmtYQ/exec';
+    
     const formData = new FormData();
     formData.append('type', 'simulation');
     formData.append('nickname', nickname);
     formData.append('scenario', currentScenario.id);
+    formData.append('scenarioName', currentScenario.title);
     formData.append('survivalRate', survivalRate);
     formData.append('userType', dominantType);
+    formData.append('choiceCount', choicesMade.length);
     
     await fetch(SCRIPT_URL, {
       method: 'POST',
       body: formData
     });
+    
+    console.log('✅ 시뮬레이션 결과가 Google Sheets에 저장되었습니다.');
   } catch (e) {
     console.error('Failed to save to Google Sheets:', e);
+    // 실패해도 사용자 경험에는 영향 없음 (localStorage에 이미 저장됨)
   }
-  */
 }
 
