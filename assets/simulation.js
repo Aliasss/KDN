@@ -48,7 +48,18 @@ function startSimulation(scenarioId) {
 
   currentScenario = SCENARIOS[scenarioId];
   currentStep = 0;
-  survivalRate = 100;
+  
+  // 시나리오별 시작 생존률 차등 적용 (긴박감 향상)
+  if (scenarioId === 'zombie') {
+    survivalRate = 80; // 좀비: 이미 혼란한 상황
+  } else if (scenarioId === 'nuclear') {
+    survivalRate = 60; // 핵전쟁: 이미 폭발 당함, 매우 위험
+  } else if (scenarioId === 'blackout') {
+    survivalRate = 90; // 정전: 비교적 덜 위험
+  } else {
+    survivalRate = 100; // 기본값
+  }
+  
   choicesMade = [];
   
   // 유형 카운터 초기화
