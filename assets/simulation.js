@@ -199,6 +199,12 @@ function showResult() {
   }
   document.getElementById('result-title').textContent = title;
   
+  // 상세 유형 분석 표시
+  displayDetailedAnalysis(dominantType, survivalRate);
+  
+  // 의사결정 패턴 분석
+  displayDecisionPatterns();
+  
   // 의사결정 분석
   displayAnalysis();
   
@@ -335,5 +341,213 @@ async function saveResult() {
     console.error('Failed to save to Google Sheets:', e);
     // 실패해도 사용자 경험에는 영향 없음 (localStorage에 이미 저장됨)
   }
+}
+
+// 상세 유형 분석 표시
+function displayDetailedAnalysis(type, rate) {
+  const lang = localStorage.getItem('lang') || 'ko';
+  
+  // 유형별 상세 분석 데이터
+  const analyses = {
+    ko: {
+      cautious: {
+        detail: '당신은 위험을 신중하게 평가하고, 안전한 선택을 우선하는 사람입니다. 감정보다는 논리로 판단하며, 예상치 못한 위험을 피하는 데 능숙합니다. 이러한 신중함은 생존 상황에서 매우 유리하며, 불필요한 위험을 피함으로써 장기적인 생존 가능성을 높입니다.',
+        strengths: ['위험 회피 능력', '계획적 사고', '안정적 의사결정', '자원 절약'],
+        warnings: ['기회 상실 가능성', '과도한 소극성', '결단력 부족 우려'],
+        recommendations: ['빠른 의사결정 훈련', '적절한 위험 감수 학습', '리더십 개발']
+      },
+      social: {
+        detail: '당신은 위기 상황에서 공동체의 힘을 믿는 사람입니다. 혼자서 모든 것을 해결하려 하기보다는, 주변 사람들과 협력하여 더 큰 시너지를 만들어냅니다. 이러한 성향은 장기적인 생존에 매우 유리하며, 특히 사회 재건 단계에서 핵심적인 역할을 할 수 있습니다.',
+        strengths: ['자원 공유 효율성', '정보 네트워크 확보', '심리적 안정감 제공', '역할 분담 전문성'],
+        warnings: ['과도한 의존 경계', '신뢰 검증 필요', '개인 생존 기술 필요'],
+        recommendations: ['리더십 훈련', '협상 기술', '공동 자원 관리 전략']
+      },
+      prepared: {
+        detail: '당신은 사전 준비와 계획을 통해 위기에 대응하는 사람입니다. "예방이 최선의 대책"이라는 철학을 실천하며, 다양한 상황을 미리 예측하고 준비합니다. 지식과 기술에 대한 투자를 아끼지 않으며, 이는 생존에 있어 가장 강력한 무기가 됩니다.',
+        strengths: ['사전 준비 철저', '다양한 지식과 기술', '체계적 계획 수립', '자원 효율 극대화'],
+        warnings: ['과도한 준비로 인한 스트레스', '완벽주의 경향', '현장 적응력 부족 가능'],
+        recommendations: ['즉흥 대응 훈련', '유연성 개발', '실전 경험 축적']
+      },
+      leader: {
+        detail: '당신은 위기 상황에서 자연스럽게 리더십을 발휘하는 사람입니다. 다른 사람들의 안전과 복지를 자신의 것만큼 중요하게 여기며, 어려운 결정을 내리는 것을 두려워하지 않습니다. 책임감과 희생정신이 뛰어나 공동체의 중심이 됩니다.',
+        strengths: ['의사결정 능력', '책임감과 신뢰성', '갈등 중재 능력', '사람들을 동기부여함'],
+        warnings: ['과도한 책임감으로 인한 스트레스', '번아웃 위험', '자기 희생 과다'],
+        recommendations: ['스트레스 관리', '권한 위임 학습', '자기 돌봄 중요']
+      },
+      defensive: {
+        detail: '당신은 방어와 안전 확보를 최우선으로 하는 사람입니다. 공격보다는 방어에 능하며, 안정적인 거점을 유지하는 데 집중합니다. 보수적이지만 확실한 전략을 선호하며, 현재 가진 것을 지키는 데 뛰어납니다.',
+        strengths: ['강력한 방어 전략', '자원 보호 능력', '안정성 추구', '인내심'],
+        warnings: ['기회 놓침', '수동적 대응', '적응력 부족'],
+        recommendations: ['능동적 사고 개발', '위험 감수 학습', '공격적 전략 연구']
+      },
+      aggressive: {
+        detail: '당신은 적극적으로 행동하고 필요한 자원을 확보하는 데 주저하지 않는 사람입니다. 빠른 결정과 과감한 실행력이 강점이며, 위기 상황에서 필요한 것을 얻는 데 탁월합니다. 하지만 위험도 함께 높아질 수 있습니다.',
+        strengths: ['빠른 행동력', '자원 확보 능력', '추진력', '결단력'],
+        warnings: ['과도한 위험 감수', '충동적 판단', '장기 계획 부족'],
+        recommendations: ['신중함 개발', '위험 평가 능력', '장기 전략 수립']
+      },
+      escape: {
+        detail: '당신은 위험한 상황을 피하고 새로운 기회를 찾아 이동하는 데 능숙합니다. 유연하고 적응력이 뛰어나며, 한 곳에 얽매이지 않습니다. 변화하는 상황에 빠르게 대응할 수 있지만, 장기적 안정성은 부족할 수 있습니다.',
+        strengths: ['높은 적응력', '유연한 사고', '빠른 상황 판단', '이동성'],
+        warnings: ['장기 계획 부족', '뿌리 내리기 어려움', '자원 축적 한계'],
+        recommendations: ['장기 거점 구축', '안정성 확보', '커뮤니티 구축']
+      },
+      loner: {
+        detail: '당신은 혼자서도 강하게 살아남는 독립적인 사람입니다. 다른 사람에게 의존하지 않고 자립할 수 있는 능력이 뛰어납니다. 자급자족에 능하지만, 장기적으로는 고립의 위험이 있습니다.',
+        strengths: ['강한 자립심', '독립적 생존 능력', '의사결정 자유', '자원 독점'],
+        warnings: ['고립 위험', '정보 부족', '도움 받기 어려움', '심리적 스트레스'],
+        recommendations: ['선택적 협력', '신뢰 관계 구축', '커뮤니티 참여 고려']
+      },
+      reckless: {
+        detail: '당신은 위험을 감수하며 대담한 선택을 하는 사람입니다. 빠른 판단과 과감한 행동으로 기회를 잡을 수 있지만, 그만큼 위험도 높습니다. 모험심이 강하지만, 신중함이 필요한 순간도 있습니다.',
+        strengths: ['대담한 결정력', '기회 포착 능력', '빠른 행동', '모험심'],
+        warnings: ['과도한 위험 감수', '계획 부족', '생존율 저하'],
+        recommendations: ['신중한 판단 훈련', '위험 평가 능력', '계획적 사고 개발']
+      }
+    },
+    en: {
+      // 영어 버전도 동일한 구조로 작성
+      cautious: {
+        detail: 'You carefully evaluate risks and prioritize safe choices. You judge with logic rather than emotion and are skilled at avoiding unexpected dangers. This caution is very advantageous in survival situations and increases long-term survival by avoiding unnecessary risks.',
+        strengths: ['Risk avoidance ability', 'Strategic thinking', 'Stable decision-making', 'Resource conservation'],
+        warnings: ['Possible missed opportunities', 'Excessive passivity', 'Lack of decisiveness'],
+        recommendations: ['Quick decision-making training', 'Appropriate risk-taking learning', 'Leadership development']
+      },
+      social: {
+        detail: 'You believe in the power of community in crisis situations. Rather than trying to solve everything alone, you collaborate with others to create greater synergy. This tendency is very advantageous for long-term survival and can play a key role in social reconstruction.',
+        strengths: ['Resource sharing efficiency', 'Information network', 'Psychological stability', 'Role specialization'],
+        warnings: ['Excessive dependence', 'Trust verification needed', 'Personal survival skills needed'],
+        recommendations: ['Leadership training', 'Negotiation skills', 'Collective resource management']
+      },
+      prepared: {
+        detail: 'You respond to crises through preparation and planning. You practice the philosophy that "prevention is the best measure" and anticipate and prepare for various situations. You invest generously in knowledge and skills, which becomes the most powerful weapon for survival.',
+        strengths: ['Thorough preparation', 'Diverse knowledge and skills', 'Systematic planning', 'Resource efficiency maximization'],
+        warnings: ['Stress from over-preparation', 'Perfectionism tendency', 'Possible lack of field adaptability'],
+        recommendations: ['Improvisation training', 'Flexibility development', 'Practical experience accumulation']
+      },
+      leader: {
+        detail: 'You naturally demonstrate leadership in crisis situations. You value the safety and well-being of others as much as your own and are not afraid to make difficult decisions. With excellent responsibility and self-sacrifice, you become the center of the community.',
+        strengths: ['Decision-making ability', 'Responsibility and reliability', 'Conflict mediation', 'People motivation'],
+        warnings: ['Stress from excessive responsibility', 'Burnout risk', 'Excessive self-sacrifice'],
+        recommendations: ['Stress management', 'Delegation learning', 'Self-care importance']
+      },
+      defensive: {
+        detail: 'You prioritize defense and security. You excel at defense rather than offense and focus on maintaining a stable stronghold. You prefer conservative but sure strategies and excel at protecting what you have.',
+        strengths: ['Strong defensive strategy', 'Resource protection', 'Stability pursuit', 'Patience'],
+        warnings: ['Missed opportunities', 'Passive response', 'Lack of adaptability'],
+        recommendations: ['Active thinking development', 'Risk-taking learning', 'Offensive strategy study']
+      },
+      aggressive: {
+        detail: 'You act proactively and do not hesitate to secure necessary resources. Quick decisions and bold execution are your strengths, and you excel at getting what you need in crisis situations. However, risks can also increase.',
+        strengths: ['Quick action', 'Resource acquisition', 'Drive', 'Decisiveness'],
+        warnings: ['Excessive risk-taking', 'Impulsive judgment', 'Lack of long-term planning'],
+        recommendations: ['Developing caution', 'Risk assessment ability', 'Long-term strategy establishment']
+      },
+      escape: {
+        detail: 'You are skilled at avoiding dangerous situations and finding new opportunities by moving. You are flexible and highly adaptable, not tied to one place. You can respond quickly to changing situations, but long-term stability may be lacking.',
+        strengths: ['High adaptability', 'Flexible thinking', 'Quick situation judgment', 'Mobility'],
+        warnings: ['Lack of long-term planning', 'Difficulty settling down', 'Resource accumulation limits'],
+        recommendations: ['Long-term base building', 'Stability securing', 'Community building']
+      },
+      loner: {
+        detail: 'You are an independent person who survives strongly alone. You have excellent ability to be self-reliant without depending on others. You are good at self-sufficiency, but there is a long-term risk of isolation.',
+        strengths: ['Strong self-reliance', 'Independent survival ability', 'Decision freedom', 'Resource monopoly'],
+        warnings: ['Isolation risk', 'Information shortage', 'Difficulty getting help', 'Psychological stress'],
+        recommendations: ['Selective cooperation', 'Trust relationship building', 'Community participation consideration']
+      },
+      reckless: {
+        detail: 'You take risks and make bold choices. You can seize opportunities with quick judgment and bold actions, but the risks are equally high. You have a strong sense of adventure, but there are moments when caution is needed.',
+        strengths: ['Bold decision-making', 'Opportunity capture', 'Quick action', 'Adventurous spirit'],
+        warnings: ['Excessive risk-taking', 'Lack of planning', 'Reduced survival rate'],
+        recommendations: ['Careful judgment training', 'Risk assessment ability', 'Strategic thinking development']
+      }
+    }
+  };
+  
+  const analysis = analyses[lang][type] || analyses[lang].cautious;
+  
+  // HTML 생성
+  const typeAnalysisDiv = document.querySelector('.type-desc');
+  if (!typeAnalysisDiv) return;
+  
+  const detailHTML = `
+    <div class="type-detail" style="margin-top: 1.5rem;">
+      <p style="line-height: 1.8; margin-bottom: 1rem;">${analysis.detail}</p>
+      
+      <div style="margin-top: 1.5rem;">
+        <h4 style="color: var(--accent); margin-bottom: 0.8rem;">💪 ${lang === 'ko' ? '강점' : 'Strengths'}</h4>
+        <ul style="margin-left: 1.5rem; line-height: 1.8;">
+          ${analysis.strengths.map(s => `<li>${s}</li>`).join('')}
+        </ul>
+      </div>
+      
+      <div style="margin-top: 1.5rem;">
+        <h4 style="color: #feca57; margin-bottom: 0.8rem;">⚠️ ${lang === 'ko' ? '주의할 점' : 'Warnings'}</h4>
+        <ul style="margin-left: 1.5rem; line-height: 1.8;">
+          ${analysis.warnings.map(w => `<li>${w}</li>`).join('')}
+        </ul>
+      </div>
+      
+      <div style="margin-top: 1.5rem;">
+        <h4 style="color: #48dbfb; margin-bottom: 0.8rem;">📚 ${lang === 'ko' ? '추천 학습' : 'Recommendations'}</h4>
+        <ul style="margin-left: 1.5rem; line-height: 1.8;">
+          ${analysis.recommendations.map(r => `<li>${r}</li>`).join('')}
+        </ul>
+      </div>
+    </div>
+  `;
+  
+  typeAnalysisDiv.insertAdjacentHTML('afterend', detailHTML);
+}
+
+// 의사결정 패턴 분석
+function displayDecisionPatterns() {
+  const lang = localStorage.getItem('lang') || 'ko';
+  
+  // 유형별 카운트 계산
+  const totalChoices = choicesMade.length;
+  if (totalChoices === 0) return;
+  
+  const patterns = {
+    risk: {
+      label: lang === 'ko' ? '위험 감수도' : 'Risk Taking',
+      value: Math.round(((userType.reckless || 0) + (userType.aggressive || 0)) / totalChoices * 100)
+    },
+    social: {
+      label: lang === 'ko' ? '사회성' : 'Sociability',
+      value: Math.round(((userType.social || 0) + (userType.leader || 0)) / totalChoices * 100)
+    },
+    preparation: {
+      label: lang === 'ko' ? '준비성' : 'Preparedness',
+      value: Math.round((userType.prepared || 0) / totalChoices * 100)
+    },
+    caution: {
+      label: lang === 'ko' ? '신중함' : 'Caution',
+      value: Math.round(((userType.cautious || 0) + (userType.defensive || 0)) / totalChoices * 100)
+    }
+  };
+  
+  // HTML 생성
+  const analysisContent = document.getElementById('analysis-content');
+  if (!analysisContent) return;
+  
+  const patternHTML = `
+    <div class="pattern-bars" style="margin-top: 2rem; margin-bottom: 2rem;">
+      <h3 style="color: var(--accent); margin-bottom: 1.5rem;">${lang === 'ko' ? '의사결정 패턴' : 'Decision Patterns'}</h3>
+      ${Object.values(patterns).map(p => `
+        <div class="pattern-item" style="margin-bottom: 1rem;">
+          <div class="pattern-label" style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+            <span>${p.label}</span>
+            <span style="color: var(--accent); font-weight: 600;">${p.value}%</span>
+          </div>
+          <div class="pattern-bar" style="height: 20px; background: #2a2a2a; border-radius: 10px; overflow: hidden;">
+            <div class="pattern-fill" style="height: 100%; background: var(--accent); width: ${p.value}%; transition: width 1s ease;"></div>
+          </div>
+        </div>
+      `).join('')}
+    </div>
+  `;
+  
+  analysisContent.insertAdjacentHTML('beforebegin', patternHTML);
 }
 

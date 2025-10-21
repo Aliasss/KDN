@@ -157,11 +157,11 @@ Korea Preppers Network (KPN)에 참여해주셔서 진심으로 감사드립니�
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-🌐 KPN 웹사이트에서 더 많은 정보를 확인하세요:
-📚 생존 지식 아카이브
-📋 재난별 시나리오
-🎮 생존 시뮬레이션 (NEW!)
-💬 커뮤니티 인사이트
+🌐 KPN 웹사이트에서 더 많은 정보를 확인하세요: https://kdn-seven.vercel.app/
+📚 생존 지식 아카이브: https://kdn-seven.vercel.app/knowledge.html
+📋 재난별 시나리오: https://kdn-seven.vercel.app/scenario.html
+🎮 생존 시뮬레이션 (NEW!): https://kdn-seven.vercel.app/simulation.html
+💬 커뮤니티 인사이트: https://kdn-seven.vercel.app/community.html
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
